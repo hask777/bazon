@@ -30,8 +30,8 @@ class PopularController extends Controller
             'genres' => $genres,
             'countries' => $countries,
             'years' => $years,
-            'movie_raiting' => $movie_raiting,
-            'average' => $average,
+            // 'movie_raiting' => $movie_raiting,
+            // 'average' => $average,
             'sidebarFutureMovies' => $sidebarFutureMovies,
             'popular_paginate' => $popular_paginate
         ]);

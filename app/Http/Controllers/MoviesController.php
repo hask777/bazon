@@ -95,7 +95,7 @@ class MoviesController extends Controller
         $movie = Http::withToken(config('services.tmdb.token'))
             ->get('https://api.themoviedb.org/3/movie/'. $id . '?append_to_response=videos,images,credits&language=ru')
             ->json();
-            // dd($movie);
+            // dump($movie);
 
         $recomend = Http::withToken(config('services.tmdb.token'))
             ->get('https://api.themoviedb.org/3/movie/'. $id . '/recommendations?append_to_response=videos,images,credits&language=ru')
@@ -132,20 +132,29 @@ class MoviesController extends Controller
         if(empty($result['error'])){          
             $videos = Http::get('https://bazon.cc/api/search?token=a27474c28593adb669d04ead29ee0c41&title='.$movie['original_title'].'')
             ->json()['results'];
-            dump($videos);
+            // dump($videos);
+
+        }else{
+            $result = Http::get('https://bazon.cc/api/search?token=a27474c28593adb669d04ead29ee0c41&title='.$movie['title'].'')
+            ->json();
+
+            if(empty($result['error'])){
+                $videos = Http::get('https://bazon.cc/api/search?token=a27474c28593adb669d04ead29ee0c41&title='. $movie['title'].'')
+                ->json()['results'];
+                // dump($videos);
+                
+            }else{
+                $videos = 'NO';
+            }
         }
 
-       
-            $videos = Http::get('https://bazon.cc/api/search?token=a27474c28593adb669d04ead29ee0c41&title='. $movie['title'].'')
-            ->json()['results'];
-     
-        dump($videos);
+        // dump($videos);
 
         $movie_year = \Carbon\Carbon::parse($movie['release_date'])->format('Y');
 
-        dump($movie_year);
+        // dump($movie_year);
 
-        if(!$videos){
+        if($videos == 'NO'){
             if(!empty($collection)){
                 return view('movies.show', [
                     'collection' => $collection,

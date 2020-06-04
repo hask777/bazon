@@ -16,7 +16,7 @@
             {{-- End Poster --}}
             {{-- Movie --}}
             <div class="container flex flex-col md:flex-row">
-                <div class="sm:ml-8 md:ml-8">
+                <div class="movie_content sm:ml-8 md:ml-8">
 
                     <div class="text-gray-400 text-sm">
                         {{-- raiting --}}
@@ -66,17 +66,31 @@
                      {{-- casts --}}
                      <div class="casts flex mt-2 text-sm">
                         <div class="casts_head text-white font-semibold text-gray-500">Роли:</div>
-                        <div class="casts_content ml-3 text-xs font-medium">            
-                            <h3> {{$videos['info']['actors']}}</h3>                                                  
+                        <div class="casts_content ml-3 text-xs font-medium">
+                            
+                                @if(!empty($videos['info']))
+                                    <h3> {{$videos['info']['actors']}}</h3> 
+                                @else 
+                                    @foreach ($movie['credits']['cast'] as $cast)
+                                    
+                                            @if ($loop->index < 5)
+                                                <h3> {{$cast['name']}}</h3>                                     
+                                            @endif
+                                                
+                                    @endforeach                                        
+                                @endif
+                                                                    
                         </div>
                     </div>
                     {{-- end casts --}}
                     {{-- movie overview --}}
                     <div class="overview flex mt-2 text-sm">
+                        @if(!empty($movie['overview']))
                         <span class='overview_head text-white font-semibold text-gray-500'>Описание:</span>
-                        <p class="overview_content text-gray-300  text-xs ml-4 font-medium">
-                            {{ $movie['overview'] }}
-                        </p>
+                            <p class="overview_content text-gray-300  text-xs ml-4 font-medium">
+                                {{ $movie['overview'] }}
+                            </p>
+                        @endif
                     </div>
                     
                     {{-- end movie overview --}}
@@ -98,7 +112,9 @@
                             </div>
 
                             <div class="videocdn hide">
-                                <iframe src="{{$videos['link']}}"  frameborder="0" allowfullscreen></iframe>   
+                                @if(!empty($videos))
+                                    <iframe src="{{$videos['link']}}"  frameborder="0" allowfullscreen></iframe>
+                                @endif               
                             </div>   
                         @endif
 
@@ -109,7 +125,9 @@
                             </button>
 
                             <div class="videocdn">
-                                <iframe src="{{$videos['link']}}"  frameborder="0" allowfullscreen></iframe> 
+                                @if(!empty($videos))
+                                    <iframe src="{{$videos['link']}}"  frameborder="0" allowfullscreen></iframe>
+                                @endif 
                             </div>
                             
                             {{-- <iframe src="{{$bazon[0]['link']}}"  frameborder="0" allowfullscreen></iframe> --}}
@@ -134,6 +152,7 @@
         </div>
         {{-- end  --}}
        @include('partials.show.recomendations')
+       @include('partials.show.recomendations_mobile')
 
     </div>
 </div>

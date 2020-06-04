@@ -1,4 +1,7 @@
 .show{
+    .movie_content{
+        min-width: 100%;
+    }
     .raiting{
         .show_movie_percent{
             margin-left: 50px;
@@ -28,4 +31,14 @@
 
 .recomendations, .similar{
     cursor: pointer;
+}
+
+@media (max-width: 1024px) { 
+    .recomend{
+        display: none;
+    }
+
+    .recomend_mobile{
+        display: block;
+    }
 }

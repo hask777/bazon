@@ -4,7 +4,7 @@
         .main_menu_item{
             &:hover{
                 a, i{
-                    color:$orange;
+                    color: rgba(66, 153, 225);
                 }
                 .sub_menu{
                     display: block;

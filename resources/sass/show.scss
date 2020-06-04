@@ -44,11 +44,14 @@
 }
 
 @media (min-width: 1024px) { 
-    .recomend{
-        display: block;
-    }
 
     .recomend_mobile{
         display: none;
     }
+    
+    .recomend{
+        display: block;
+    }
+
+    
 }

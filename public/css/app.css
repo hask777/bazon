@@ -640,6 +640,16 @@ body {
   }
 }
 
+@media (min-width: 1024px) {
+  .recomend_mobile {
+    display: none;
+  }
+
+  .recomend {
+    display: block;
+  }
+}
+
 .filter {
   max-width: 224px;
   /* width */

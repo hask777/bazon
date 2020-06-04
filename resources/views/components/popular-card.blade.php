@@ -33,6 +33,9 @@
     </a>
     <div class="flex justify-between px-2 py-2 text-sm">
         <h2 class="title">{{mb_strimwidth($movie['title'], 0, 18, "...")}}</h2>
-        <span>{{\Carbon\Carbon::parse($movie['release_date'])->format('Y') }}</span>
+        @if(!empty($movie['release_date']))
+            <span>{{\Carbon\Carbon::parse($movie['release_date'])->format('Y') }}</span>
+        @endif
+        
     </div>
 </div>

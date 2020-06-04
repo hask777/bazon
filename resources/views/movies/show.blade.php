@@ -43,7 +43,10 @@
                         {{-- movie date --}}
                         <div class="date mt-1">
                             <span class='date_head text-white font-semibold text-gray-500'>Дата релиза:</span>
-                            <span class="date_content ml-4 text-white text-xs">{{ $movie['release_date'] }}</span>
+                            @if(!empty($movie['release_date']))
+                                <span class="date_content ml-4 text-white text-xs">{{ $movie['release_date'] }}</span>
+                            @endif
+                            
                         </div>      
                         {{-- end movie date --}}
                         {{-- movie genres --}}
@@ -62,15 +65,9 @@
                     </div>
                      {{-- casts --}}
                      <div class="casts flex mt-2 text-sm">
-                        <span class="casts_head text-white font-semibold text-gray-500">В ролях:</span>
-                        <div class="casts_content ml-3 text-xs font-medium">
-                            @foreach ($movie['credits']['cast'] as $cast)
-                                
-                                    @if ($loop->index < 5)
-                                        <h3> {{$cast['name']}}</h3>                                     
-                                    @endif
-                                         
-                            @endforeach
+                        <div class="casts_head text-white font-semibold text-gray-500">Роли:</div>
+                        <div class="casts_content ml-3 text-xs font-medium">            
+                            <h3> {{$videos['info']['actors']}}</h3>                                                  
                         </div>
                     </div>
                     {{-- end casts --}}
@@ -85,7 +82,7 @@
                     {{-- end movie overview --}}
                    
                     <div class="mt-12 pb-12">
-                        @if(count($movie['videos']['results']) > 0 && $video != 'NO')
+                        @if(count($movie['videos']['results']) > 0 && $videos != 'NO')
                             <button id="play_trailer" class="flex inline-flex items-center  rounded font-semibold px-2 py-4"> 
                                 <i class="fa fa-youtube" aria-hidden="true"></i>
                                     <span class="ml-2">Смотреть Трэйлер</span>
@@ -101,24 +98,24 @@
                             </div>
 
                             <div class="videocdn hide">
-                                <iframe src="{{$video[0]['link']}}"  frameborder="0" allowfullscreen></iframe>   
+                                <iframe src="{{$videos['link']}}"  frameborder="0" allowfullscreen></iframe>   
                             </div>   
                         @endif
 
-                        @if(count($movie['videos']['results']) == 0 && $video != 'NO')
+                        @if(count($movie['videos']['results']) == 0 && $videos != 'NO')
                             <button id="play_movie" class="flex inline-flex items-center  rounded font-semibold px-2 py-4">
                                 <i class="fa fa-play-circle-o" aria-hidden="true"></i>
-                                <span class="ml-2">Плеер 1</span>
+                                <span class="ml-2">Смотреть Фильм</span>
                             </button>
 
                             <div class="videocdn">
-                                <iframe src="{{$video[0]['link']}}"  frameborder="0" allowfullscreen></iframe> 
+                                <iframe src="{{$videos['link']}}"  frameborder="0" allowfullscreen></iframe> 
                             </div>
                             
                             {{-- <iframe src="{{$bazon[0]['link']}}"  frameborder="0" allowfullscreen></iframe> --}}
                         @endif
 
-                        @if(count($movie['videos']['results']) > 0 && $video == 'NO')
+                        @if(count($movie['videos']['results']) > 0 && $videos == 'NO')
                             <button id="play_trailer" class="flex inline-flex items-center  rounded font-semibold px-6 py-4">         
                                 <i class="fa fa-youtube" aria-hidden="true"></i>
                                     <span class="ml-2">Трэйлер</span>

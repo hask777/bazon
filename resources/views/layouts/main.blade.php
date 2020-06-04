@@ -55,10 +55,10 @@
                 <img src="{{secure_asset('img/icons/odnaklassniki.svg')}}" alt="" class="ml-1">
                 <img src="{{secure_asset('img/icons/facebook.svg')}}" alt="" class="ml-1">
                 <img src="{{secure_asset('img/icons/vkontakte.svg')}}" alt="" class="ml-1">
-                <img src="{{asset('img/icons/telegram.svg')}}" alt="" class="ml-1">
+                {{-- <img src="{{asset('img/icons/telegram.svg')}}" alt="" class="ml-1">
                 <img src="{{asset('img/icons/odnaklassniki.svg')}}" alt="" class="ml-1">
                 <img src="{{asset('img/icons/facebook.svg')}}" alt="" class="ml-1">
-                <img src="{{asset('img/icons/vkontakte.svg')}}" alt="" class="ml-1">
+                <img src="{{asset('img/icons/vkontakte.svg')}}" alt="" class="ml-1"> --}}
             </div>     
         </footer>
 

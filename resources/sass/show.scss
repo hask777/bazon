@@ -49,6 +49,25 @@
     .recomend_mobile{
         display: block;
     }
+    .movie_content{
+        width: 100%;
+        .movie_buttons{
+            width: 100%;
+            #play_trailer, #play_movie{
+                border: none;
+                display: block;
+                max-width: 50%;
+                span{
+                    font-size: 0.75rem;
+                }
+            }
+            #play_trailer{
+                background-color: $second_blue;
+            }
+        }
+        
+    }
+    
 }
 
 @media (min-width: 1024px) { 

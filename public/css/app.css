@@ -641,6 +641,30 @@ body {
   .recomend_mobile {
     display: block;
   }
+
+  .movie_content {
+    width: 100%;
+  }
+
+  .movie_content .movie_buttons {
+    width: 100%;
+  }
+
+  .movie_content .movie_buttons #play_trailer,
+  .movie_content .movie_buttons #play_movie {
+    border: none;
+    display: block;
+    max-width: 50%;
+  }
+
+  .movie_content .movie_buttons #play_trailer span,
+  .movie_content .movie_buttons #play_movie span {
+    font-size: 0.75rem;
+  }
+
+  .movie_content .movie_buttons #play_trailer {
+    background-color: #2d3748;
+  }
 }
 
 @media (min-width: 1024px) {

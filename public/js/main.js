@@ -24,14 +24,18 @@ jQuery(document).ready(function ($) {
 	// Show movie and trailer buttons
 	$('#play_movie').on('click', function(e){
 		e.preventDefault();
+		$('#play_movie').css('background-color', '#2d3748')
+		$('#play_trailer').css('background-color', '#1a202c')
 		$('.youtube').hide();
 		$('.videocdn').show();
 	});
 	
 	$('#play_trailer').on('click', function(e){
 		e.preventDefault();
-			$('.youtube').show();
-			$('.videocdn').hide();
+		$('#play_movie').css('background-color', '#1a202c')
+		$('#play_trailer').css('background-color', '#2d3748')
+		$('.youtube').show();
+		$('.videocdn').hide();
 	});
 	
 	// Mobile filter show hide

@@ -124,33 +124,24 @@ class MoviesController extends Controller
             ->json();
             // dump($credits);
 
-        // Запрос к videocdn title=$title
-        // $videos = Http::get('https://videocdn.tv/api/movies?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&field='.$movie['imdb_id'] .'&limit=10')
-        //     ->json()['data'];
-        //     dump($videos);
-        
-        
-        // $videos = Http::get('https://videocdn.tv/api/movies?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['original_title'] .'&limit=10')
-        //     ->json()['data'];
-        // // dump($videos);
+            
+        $result = Http::get('https://bazon.cc/api/search?token=a27474c28593adb669d04ead29ee0c41&title='.$movie['original_title'].'')
+        ->json();
+        // dd($result);
 
-        // if(empty($videos)){
-        //     $videos = Http::get('https://videocdn.tv/api/movies?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['title'] .'&limit=10')
-        //         ->json()['data'];
-        // }
-
-        if(empty($video)){
-            $video = Http::get('https://bazon.cc/api/search?token=a27474c28593adb669d04ead29ee0c41&title='. $movie['title'].'')
+        if(empty($result['error'])){          
+            $video = Http::get('https://bazon.cc/api/search?token=a27474c28593adb669d04ead29ee0c41&title='.$movie['original_title'].'')
             ->json()['results'];
         }
 
-        $video = Http::get('https://bazon.cc/api/search?token=a27474c28593adb669d04ead29ee0c41&title='.$movie['original_title'].'')
-        ->json()['results'];
+       
+            $video = Http::get('https://bazon.cc/api/search?token=a27474c28593adb669d04ead29ee0c41&title='. $movie['title'].'')
+            ->json()['results'];
+        
+  
+        // dd($video);
 
-        
-        
-        dump($video);
-        if(empty($video)){
+        if(!$video){
             if(!empty($collection)){
                 return view('movies.show', [
                     'collection' => $collection,
@@ -179,7 +170,35 @@ class MoviesController extends Controller
                 ]);
             }
         }else{
-            if(!empty($collection)){
+            if(!empty($video)){
+                if(!empty($collection)){
+                    return view('movies.show', [
+                        'collection' => $collection,
+                        'similar' => $similar,
+                        'recomend' => $recomend,
+                        'movie' => $movie,
+                        'credits' => $credits,
+                        'genres' => $genres,
+                        'countries' => $countries,
+                        'years' => $years,
+                        'sidebarFutureMovies' => $sidebarFutureMovies,
+                        'video' => $video,
+                    ]);
+                }else{
+                    return view('movies.show', [
+                        'collection' => 'NO',
+                        'similar' => $similar,
+                        'recomend' => $recomend,
+                        'movie' => $movie,
+                        'credits' => $credits,
+                        'genres' => $genres,
+                        'countries' => $countries,
+                        'years' => $years,
+                        'sidebarFutureMovies' => $sidebarFutureMovies,
+                        'video' => $video,
+                    ]);
+                }
+            }else{
                 return view('movies.show', [
                     'collection' => $collection,
                     'similar' => $similar,
@@ -189,59 +208,68 @@ class MoviesController extends Controller
                     'genres' => $genres,
                     'countries' => $countries,
                     'years' => $years,
-                    'sidebarFutureMovies' => $sidebarFutureMovies,
-                    'video' => $video,
+                    'sidebarFutureMovies' => $sidebarFutureMovies,               
+                    'videos' => $video 
                 ]);
-            }else{
-                return view('movies.show', [
-                    'collection' => 'NO',
-                    'similar' => $similar,
-                    'recomend' => $recomend,
-                    'movie' => $movie,
-                    'credits' => $credits,
-                    'genres' => $genres,
-                    'countries' => $countries,
-                    'years' => $years,
-                    'sidebarFutureMovies' => $sidebarFutureMovies,
-                    'video' => $video,
-                ]);
-            }
+            }      
         }
-        
-
-
-        // if(!$videos){
-        //     if(!empty($collection)){
-        //         return view('movies.show', [
-        //             'collection' => $collection,
-        //             'similar' => $similar,
-        //             'recomend' => $recomend,
-        //             'movie' => $movie,
-        //             'credits' => $credits,
-        //             'genres' => $genres,
-        //             'countries' => $countries,
-        //             'years' => $years,
-        //             'sidebarFutureMovies' => $sidebarFutureMovies,
-        //             'video' => 'NO',
-                    
-        //         ]);
-        //     }else{
-        //         return view('movies.show', [
-        //             'collection' => 'NO',
-        //             'similar' => $similar,
-        //             'recomend' => $recomend,
-        //             'movie' => $movie,
-        //             'credits' => $credits,
-        //             'genres' => $genres,
-        //             'countries' => $countries,
-        //             'years' => $years,
-        //             'sidebarFutureMovies' => $sidebarFutureMovies,               
-        //             'video' => 'NO',
-                   
-        //          ]);
-        //     }
-        // }
-        
+        if(!empty($collection)){
+            return view('movies.show', [
+                // 'bazon' => $bazon,
+                'collection' => $collection,
+                'similar' => $similar,
+                'recomend' => $recomend,
+                'movie' => $movie,
+                'credits' => $credits,
+                'genres' => $genres,
+                'countries' => $countries,
+                'years' => $years,
+                'sidebarFutureMovies' => $sidebarFutureMovies,                
+                'videos' => $video
+            ]); 
+        }else{
+            return view('movies.show', [
+                // 'bazon' => $bazon,
+                'collection' => 'NO',
+                'similar' => $similar,
+                'recomend' => $recomend,
+                'movie' => $movie,
+                'credits' => $credits,
+                'genres' => $genres,
+                'countries' => $countries,
+                'years' => $years,
+                'sidebarFutureMovies' => $sidebarFutureMovies,               
+                'videos' => $video
+            ]);  
+        }
+        if(!empty($video)){
+            return view('movies.show', [
+                'collection' => $collection,
+                'similar' => $similar,
+                'recomend' => $recomend,
+                'movie' => $movie,
+                'credits' => $credits,
+                'genres' => $genres,
+                'countries' => $countries,
+                'years' => $years,
+                'sidebarFutureMovies' => $sidebarFutureMovies,               
+                'videos' => $video
+            ]);                             
+        }
+        else{
+            return view('movies.show', [
+                'collection' => $collection,
+                'similar' => $similar,
+                'recomend' => $recomend,
+                'movie' => $movie,
+                'credits' => $credits,
+                'genres' => $genres,
+                'countries' => $countries,
+                'years' => $years,
+                'sidebarFutureMovies' => $sidebarFutureMovies,               
+                'videos' => $video 
+            ]);
+        }                        
     }
 
     /**

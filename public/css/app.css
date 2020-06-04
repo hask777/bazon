@@ -624,12 +624,13 @@ body {
   margin-left: 78px;
 }
 
-.collection_wrapper .collection_slide {
-  margin-right: 20px;
+.show .collection_wrapper .collection_slide {
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
-.recomendations,
-.similar {
+.show .recomendations,
+.show .similar {
   cursor: pointer;
 }
 

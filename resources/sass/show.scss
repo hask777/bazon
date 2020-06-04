@@ -27,16 +27,19 @@
             margin-left: 78px;
         }
     }
+    .collection_wrapper .collection_slide{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .recomendations, .similar{
+        cursor: pointer;
+    }
 }
 
 
-.collection_wrapper .collection_slide{
-    margin-right: 20px;
-}
 
-.recomendations, .similar{
-    cursor: pointer;
-}
+
+
 
 @media (max-width: 1024px) { 
     .recomend{

@@ -141,6 +141,10 @@ class MoviesController extends Controller
      
         dump($videos);
 
+        $movie_year = \Carbon\Carbon::parse($movie['release_date'])->format('Y');
+
+        dump($movie_year);
+
         if(!$videos){
             if(!empty($collection)){
                 return view('movies.show', [
@@ -172,7 +176,12 @@ class MoviesController extends Controller
         }else{
             foreach($videos as $video){
                 if(!empty($video)){
-                    if($video['info']['orig'] === $movie['original_title']){
+                    if(
+                        $video['info']['orig'] === $movie['original_title'] &&
+                        $video['info']['year'] === $movie_year ||
+                        $video['info']['rus'] === $movie['title'] &&
+                        $video['info']['year'] === $movie_year
+                    ){
                         if(!empty($collection)){
                             return view('movies.show', [
                                 'collection' => $collection,
@@ -250,7 +259,12 @@ class MoviesController extends Controller
         }
         foreach($videos as $video){
             if(!empty($video)){
-                if($video['info']['orig'] === $movie['original_title']){
+                if(
+                    $video['info']['orig'] === $movie['original_title'] &&
+                    $video['info']['year'] === $movie_year ||
+                    $video['info']['rus'] === $movie['title'] &&
+                    $video['info']['year'] === $movie_year
+                ){
                     return view('movies.show', [
                         'collection' => $collection,
                         'similar' => $similar,

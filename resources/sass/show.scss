@@ -42,3 +42,13 @@
         display: block;
     }
 }
+
+@media (min-width: 1024px) { 
+    .recomend{
+        display: blobk;
+    }
+
+    .recomend_mobile{
+        display: none;
+    }
+}

@@ -624,6 +624,10 @@ body {
   margin-left: 78px;
 }
 
+.collection_wrapper .collection_slide {
+  margin-right: 20px;
+}
+
 .recomendations,
 .similar {
   cursor: pointer;

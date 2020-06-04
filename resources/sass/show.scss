@@ -1,0 +1,31 @@
+.show{
+    .raiting{
+        .show_movie_percent{
+            margin-left: 50px;
+        }
+    }
+    .date{
+        .date_content{
+            margin-left: 20px;
+        }     
+    }
+    .genres{
+        .genres_content{
+            margin-left: 70px;
+        }
+    }
+    .overview{
+        .overview_content{
+            margin-left: 40px;
+        }
+    }
+    .casts{
+        .casts_content{
+            margin-left: 58px;
+        }
+    }
+}
+
+.recomendations, .similar{
+    cursor: pointer;
+}

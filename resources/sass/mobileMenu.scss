@@ -1,0 +1,16 @@
+.mobile_menu{
+    margin-top: 20px;
+    ul{
+        width: 100%;
+        padding: 0;
+        .mobile_menu_item{
+          width: 50%;
+          text-align: center;
+          .tv-series{
+              a{
+                color: $orange;
+              }     
+          }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+.now_playing_mobile{
+    display: none;
+}
+
+// /* Small (sm) */
+@media (max-width: 640px) {
+    .now_playing{
+        display: none;
+    }
+
+    .now_playing_mobile{
+        display: block;
+    }
+}

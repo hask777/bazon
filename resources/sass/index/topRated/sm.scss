@@ -1,0 +1,14 @@
+.mobile_top_rated{
+    display: none;
+}
+
+// /* Small (sm) */
+@media (max-width: 640px) {
+    .top_rated{
+        display: none;
+    }
+
+    .mobile_top_rated{
+        display: block;
+    }
+}

@@ -1,0 +1,14 @@
+.upcoming_mobile{
+    display: none;
+}
+
+// /* Small (sm) */
+@media (max-width: 640px) {
+    .upcoming{
+        display: none;
+    }
+
+    .upcoming_mobile{
+        display: block;
+    }
+}

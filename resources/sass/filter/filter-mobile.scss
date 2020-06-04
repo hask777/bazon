@@ -1,0 +1,179 @@
+.filter_mobile{
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    /* width */
+    ::-webkit-scrollbar {
+        width: 4px;
+    }
+    
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: $main_blue;
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background:  $orange;
+    }
+    
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #fff;
+    }
+
+    input{
+        // max-width: 190px;
+        width: 100%;
+    }
+    .movie_list{
+        max-height: 100px;
+        margin-bottom: 40px;
+        overflow-y: scroll;
+        background-color: $second_blue;
+        padding: 0 10px;
+        border: 1px solid $second_blue;
+        &:hover{
+            box-sizing: border-box;
+            border: 1px solid rgba(66, 153, 225);
+        }
+        li{
+            button{
+                font-size: 1rem;
+            }
+            
+            &:hover{
+                button{
+                    display: block;
+                    width: 100%;
+                    color: $orange;
+                    font-size: 1rem;  
+                    font-weight: bold;
+                    background-color: $main_blue;
+                }
+               
+            }
+        } 
+        .genre_active{
+            background-color: $second_blue;
+        }   
+    }
+    .countries_list{
+        max-height: 100px;
+        margin-bottom: 40px;
+        overflow-y: scroll;
+        background-color: $second_blue;
+        padding: 0 10px;
+        border: 1px solid $second_blue;
+        &:hover{
+            box-sizing: border-box;
+            border: 1px solid rgba(66, 153, 225);
+        }
+        li{
+            button{
+                font-size: 1rem;
+            }
+            
+            &:hover{
+                button{
+                    display: block;
+                    width: 100%;
+                    color: $orange;
+                    font-size: 1rem;  
+                    font-weight: bold;
+                    background-color: $main_blue;
+                }
+               
+            }
+        } 
+        .country_active{
+            background-color: $second_blue;
+        }  
+    }
+    .years_list{
+        max-height: 70px;
+        margin-bottom: 40px;
+        overflow-y: scroll;
+        background-color: $second_blue;
+        padding: 0 10px;
+        border: 1px solid $second_blue;
+        &:hover{
+            box-sizing: border-box;
+            border: 1px solid rgba(66, 153, 225);
+        }
+        li{
+            button{
+                font-size: 1rem;
+            }
+            
+            &:hover{
+                button{
+                    display: block;
+                    width: 100%;
+                    color: $orange;
+                    font-size: 1rem;  
+                    font-weight: bold;
+                    background-color: $second_blue;
+                }
+               
+            }
+        } 
+        .country_active{
+            background-color: $second_blue;
+        }  
+    }
+}
+
+.genre_active, .country_active{
+    display: block;
+    width: 100%;
+    color: rgba(66, 153, 225);
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: $main_blue;
+}
+
+.mobile_sidebar_close_button{
+    display: none;
+}
+
+.filter_mobile_overlay{
+    display: none;
+    position: fixed;
+    overflow-x: hidden;
+    top:0;
+    z-index: 9998;
+    width: 100%;
+    min-height: 100%;
+    background-color: $second_blue;
+    // opacity: 0.9;
+}
+
+
+/* Large (lg) */
+@media (max-width: 1024px) { 
+    .left_sidebar_mobile{
+        position: absolute; 
+        top:0;
+        left: 0;
+        z-index: 9999;
+        width: 100%;    
+    }
+    
+    .mobile_sidebar_close_button{
+        display: none;
+        position: fixed;
+        right: 10px;
+        top: 20px;
+        z-index: 9999;
+        background-color: $main_blue;
+        border-radius: 25px;
+        border: 2px solid rgba(66, 153, 225);
+        padding: 10px;
+        cursor: pointer;
+        span{
+            font-size: 12px;
+        }
+    }
+}

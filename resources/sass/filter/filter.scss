@@ -1,0 +1,196 @@
+.filter{
+    max-width: 224px;
+    h3{
+        cursor: pointer;
+    }
+    /* width */
+    ::-webkit-scrollbar {
+        width: 4px;
+    }
+    
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: $main_blue;
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background:   rgba(66, 153, 225);
+    }
+    
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #fff;
+    }
+    input{
+        max-width: 190px;  
+    }
+    .movie_list{
+        max-height: 200px;
+        margin-bottom: 40px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        background-color: $second_blue;
+        padding: 0 10px;
+        border: 1px solid $second_blue;
+        &:hover{
+            box-sizing: border-box;
+            border: 1px solid rgba(66, 153, 225);
+        }
+        li{
+            button{
+                font-size: 1rem;
+                text-align: left;
+                text-transform: capitalize;
+                font-weight: 500;
+                padding: 0 4px;
+            }
+            
+            &:hover{
+                button{
+                    display: block;
+                    width: 100%;
+                    color: rgba(66, 153, 225);
+                    font-size: 1rem;  
+                    font-weight: 500;
+                    background-color: $main_blue;
+                }
+               
+            }
+        } 
+        .genre_active{
+            background-color: $second_blue;
+        }   
+    }
+    .countries_list{
+        max-height: 200px;
+        margin-bottom: 40px;
+        overflow-y: scroll;
+        background-color: $second_blue;
+        padding: 0 10px;
+        border: 1px solid $second_blue;
+        &:hover{
+            box-sizing: border-box;
+            border: 1px solid rgba(66, 153, 225);
+        }
+        li{
+            button{
+                font-size: 1rem;
+                text-align: left;
+                font-weight: 500;
+                padding: 0 4px;
+            }
+            
+            &:hover{
+                button{
+                    display: block;
+                    width: 100%;
+                    text-align: left;
+                    color: rgba(66, 153, 225);
+                    font-size: 1rem;  
+                    font-weight: 500;
+                    background-color: $main_blue;
+                }
+               
+            }
+        } 
+        .country_active{
+            background-color: $second_blue;
+        }  
+    }
+    .years_list{
+        max-height: 200px;
+        // margin-bottom: 40px;
+        overflow-y: scroll;
+        background-color: $second_blue;
+        padding: 0 10px;
+        border: 1px solid $second_blue;
+        &:hover{
+            box-sizing: border-box;
+            border: 1px solid rgba(66, 153, 225);
+        }
+        li{
+            button{
+                font-size: 1rem;
+                text-align: left;
+                font-weight: 500;
+                padding: 0 4px;
+            }
+            
+            &:hover{
+                button{
+                    display: block;
+                    width: 100%;
+                    text-align: left;
+                    color: rgba(66, 153, 225);
+                    font-size: 1rem;  
+                    font-weight: 500;
+                    background-color: $main_blue;
+                }
+               
+            }
+        } 
+        .year_active{
+            background-color: $second_blue;
+        }  
+    }
+}
+
+.genre_active, .country_active .year_active{
+    display: block;
+    width: 100%;
+    color: rgba(66, 153, 225);
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: $main_blue;
+}
+
+.filter_show_button{
+    cursor: pointer;
+    &:hover{
+        background-color: orange;
+        img{
+            width: 20px;
+            height: 20px;
+        }
+    }
+    img{
+        width: 20px;
+        height: 20px;
+    }
+ }
+
+/* Large (lg) */
+@media (max-width: 1024px) { 
+    .left_sidebar{
+        display: none;
+    }
+
+    .filter_show_button{
+        display: flex;
+        position: fixed;
+        top: 30px;
+        right: 0;
+        margin-right: 16px;
+        z-index: 9999;
+        background-color: $second_blue;
+        padding: 10px;
+        border-radius: 25px;
+        border: 2px solid rgba(66, 153, 225);
+    }
+}
+
+/* Large (lg) */
+@media (min-width: 1024px) { 
+    .filter_mobile_overlay{
+        display: none !important;
+    }
+
+    .filter_show_button{
+       display: none;
+       img{
+           width: 20px;
+           height: 20px;
+       }
+    }
+}

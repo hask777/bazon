@@ -1,0 +1,146 @@
+.swiper-container, .swiper-container-mobile{
+    width: 100%;
+    height: 100%;
+    .swiper-button-prev:after, .swiper-container-rtl .swiper-button-next:after,
+    .swiper-button-next:after, .swiper-container-rtl .swiper-button-prev:after {       
+        font-size: 12px;
+    }
+    .swiper-button-next, .swiper-button-prev{
+        display: none;
+    }
+    &:hover{
+        .swiper-button-prev{
+            display: flex;
+            top: 22px;
+            left: 0;
+            height: 100%;
+            color: #fff;
+            background-color: $main_blue;
+            opacity: 0.9;
+        } 
+
+        .swiper-button-next{
+            display: flex;
+            top: 22px;
+            right: 0;
+            height: 100%;
+            color: #fff;
+            background-color: $main_blue;
+            opacity: 0.9;
+        } 
+    }
+    .swiper-pagination, .swiper-pagination-clickable, .swiper-pagination-bullets{
+        display: none;
+    }
+} 
+
+/* width */
+::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: $main_blue;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background:  $second_blue;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #fff;
+  }
+
+.swiper-slide{
+    display: flex;
+    .popular_movie_item{
+        // display: flex;
+        max-width: 184px;
+       
+        .movie_item_overlay{
+            display: none;
+        }
+        &:hover{
+            .movie_item_overlay{
+                display: block;
+                // overflow-y: scroll;
+                background-color: rgba(26, 32, 44, 0.9);
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                padding: 10px;
+                span{
+                    display: flex;
+                    color: #fff;
+                    font-size: 14px;
+                    // align-items: center;
+                    padding-bottom: 2px;
+                    margin-left: 2px;
+                    .inner{
+                        display: inline;
+                        color: $orange;
+                        margin-right: 10px;
+                        font-size: 14px;
+                    }
+                }
+                .genre{
+                    font-size: 12px;
+                }
+                .title{
+                    font-weight: 500;
+                    text-align: center;
+                    // color: $orange;
+                    font-size: 0.8rem;
+                    padding-bottom: 10px;
+                }
+                .orig_title{
+                    font-size: 12px;
+                }
+                .watch{
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    span{
+                        padding: 5px 15px;
+                        // background-color: $second_blue;
+                        font-size: 1rem;
+                        border-radius: 25px;
+                        font-weight: bold;
+                        border: 1px solid rgba(66, 153, 225);
+                        &:hover{
+                            // background-color: $orange;
+                        }
+                    }
+                   
+                }
+            }
+        }
+    }
+}
+
+.collection_slide{
+    margin-right: 20px;
+}
+
+.mobile_popular{
+    display: none;
+}
+
+// /* Small (sm) */
+@media (max-width: 640px) {
+    .popular{
+        display: none;
+    }
+
+    .mobile_popular{
+        display: block;
+    }
+}
+
+

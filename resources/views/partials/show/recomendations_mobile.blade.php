@@ -1,15 +1,16 @@
 <div class="recomend_mobile">
     {{-- Collection --}}
     @if($collection != 0)
-        <div class="recomended_title_mobile mt-4">
-            <h2 class='movies_header_title capitalize tracking-wider text-gray-500 text-2xl   font-semibold'>{{$collection['name']}}</h2>    
-            </div>
+            
+            <div class="recomended_title_mobile mt-4 flex items-center justify-center">
+                <h2 class='movies_header_title recomendations capitalize tracking-wider text-gray-500 text-2xl   font-semibold'>{{$collection['name']}}</h2>
+            </div>   
             <div class="sm:flex mx-auto mt-6 momvie-info pb-10 border-b border-gray-800">
                 <div class="flex w-100 ">
 
-                    @if(count($collection['parts']) > 5)
+                    @if(count($collection['parts']) > 3 )
                         <!-- Slider main container -->
-                        <div class="swiper-container">
+                        <div class="swiper-container-mobile">
                             <!-- Additional required wrapper -->
                             <div class="swiper-wrapper">
                                 <!-- Slides -->
@@ -48,11 +49,9 @@
 
         @if(!empty($recomend))
         {{-- Recomindations --}}
-        <div class="recomended_title_mobile mt-4 flex">
-        <h2 class='movies_header_title recomendations capitalize tracking-wider text-gray-500 text-2xl   font-semibold'>Рекомендованные</h2>
-        <h2 class='movies_header_title similar capitalize tracking-wider text-gray-500 text-2xl   font-semibold ml-4'>Похожие</h2>       
-        </div>
-
+        <div class="recomended_title_mobile mt-4 flex items-center justify-center">
+            <h2 class='movies_header_title recomendations capitalize tracking-wider text-gray-500 text-2xl   font-semibold'>Рекомендованные</h2>
+        </div>   
         @if($collection != 0)
             <div class="recomendations_movies_mobile sm:flex mx-auto mt-6 momvie-info pb-10">
                 <div class="flex w-100 ">
@@ -79,7 +78,10 @@
                         <div class="swiper-scrollbar"></div>
                     </div>
                                 
-                </div>        
+                </div>         
+            </div>
+            <div class="recomended_title_mobile mt-4 flex items-center justify-center">
+                <h2 class='movies_header_title recomendations capitalize tracking-wider text-gray-500 text-2xl   font-semibold'>Похожие</h2>
             </div>
             <div class="similar_movies_mobile sm:flex mx-auto mt-6 momvie-info pb-10">
                 <div class="flex w-100 ">
@@ -109,6 +111,9 @@
                 </div>        
             </div>
         @else
+            <div class="recomended_title_mobile mt-4 flex items-center justify-center">
+                <h2 class='movies_header_title recomendations capitalize tracking-wider text-gray-500 text-2xl   font-semibold'>Рекомендованные</h2>
+            </div> 
             <div class="recomendations_movies_mobile sm:flex mx-auto mt-6 momvie-info pb-10">
                 <div class="flex w-100 ">
                 <!-- Slider main container -->
@@ -134,8 +139,11 @@
                     <div class="swiper-scrollbar"></div>
                 </div>                     
             </div>        
+            </div>
+            <div class="recomended_title_mobile mt-4 flex items-center justify-center">
+                <h2 class='movies_header_title recomendations capitalize tracking-wider text-gray-500 text-2xl   font-semibold'>Похожие</h2>
             </div> 
-                <div class="similar_movies_mobile sm:flex mx-auto mt-6 momvie-info pb-10">
+            <div class="similar_movies_mobile sm:flex mx-auto mt-6 momvie-info pb-10">
                 <div class="flex w-100 ">
                 <!-- Slider main container -->
                 <div class="swiper-container-mobile">

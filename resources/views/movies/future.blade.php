@@ -4,7 +4,7 @@
     <div class="container flex mx-auto px-4 mt-6 mb-8">
         @include('partials.left-sidebar')
         <div class="popular_movies w-80%">
-            <div class="flex movies_header items-center">
+            <div class="movies_header md:flex items-center pb-4">
                  
                 <h2 class='movies_header_title capitalize tracking-wider text-gray-500 text-2xl  text-center font-semibold'>
                     <a href="">

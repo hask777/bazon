@@ -132,7 +132,7 @@ class MoviesController extends Controller
         if(empty($result['error'])){          
             $videos = Http::get('https://bazon.cc/api/search?token=a27474c28593adb669d04ead29ee0c41&title='.$movie['original_title'].'')
             ->json()['results'];
-            dump($videos);
+            // dump($videos);
 
             
             // $text = htmlspecialchars_decode($text);
@@ -149,7 +149,7 @@ class MoviesController extends Controller
             }
         }
 
-        dump($videos);
+        // dump($videos);
 
         $movie_year = \Carbon\Carbon::parse($movie['release_date'])->format('Y');
 
@@ -185,7 +185,7 @@ class MoviesController extends Controller
             }
         }else{
             foreach($videos as $video){
-                dump( str_replace("&nbsp;",' ',$video['info']['rus']));
+                // dump( str_replace("&nbsp;",' ',$video['info']['rus']));
                 // dump($movie['title']);
                 if(!empty($video)){
                     if(     

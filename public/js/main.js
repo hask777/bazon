@@ -53,9 +53,8 @@ jQuery(document).ready(function ($) {
 
 	// Filter buttons
 	$('.movie_list').hide();
-	$('.genres_head').on('click', function(e){
-		e.preventDefault();
-		$('.movie_list').slideToggle();		
+	$('.genres_head').on('click', function(){			
+		$('.movie_list').slideToggle();				
 	});
 
 	$('.countries_list').hide();
@@ -69,8 +68,8 @@ jQuery(document).ready(function ($) {
 	});
 
 	$('.raiting_list').hide();
-	$('.raiting_head').on('click', function(){
-		$('.raiting_list').slideToggle();		
+		$('.raiting_head').on('click', function(){
+			$('.raiting_list').slideToggle();		
 	});
 
 	// // Mobile

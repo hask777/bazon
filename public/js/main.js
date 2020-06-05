@@ -53,7 +53,8 @@ jQuery(document).ready(function ($) {
 
 	// Filter buttons
 	$('.movie_list').hide();
-	$('.genres_head').on('click', function(){
+	$('.genres_head').on('click', function(e){
+		e.preventDefault();
 		$('.movie_list').slideToggle();		
 	});
 
@@ -70,6 +71,27 @@ jQuery(document).ready(function ($) {
 	$('.raiting_list').hide();
 	$('.raiting_head').on('click', function(){
 		$('.raiting_list').slideToggle();		
+	});
+
+	// // Mobile
+	$('.movie_list_mobile').hide();
+	$('.genres_head_mobile').on('click', function(){
+		$('.movie_list_mobile').slideToggle();		
+	});
+
+	$('.countries_list_mobile').hide();
+	$('.country_head_mobile').on('click', function(){
+		$('.countries_list_mobile').slideToggle();		
+	});
+
+	$('.years_list_mobile').hide();
+	$('.years_head_mobile').on('click', function(){
+		$('.years_list_mobile').slideToggle();		
+	});
+
+	$('.raiting_list_mobile').hide();
+	$('.raiting_head_mobile').on('click', function(){
+		$('.raiting_list_mobile').slideToggle();		
 	});
 
 	// Average filter

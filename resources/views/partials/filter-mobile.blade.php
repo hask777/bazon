@@ -13,22 +13,22 @@
 
             @include('partials.buttons')
 
-            <h3 class="genres_head font-bold text-gray-500  mt-1 pb-3 pt-3 border-b border-gray-700">По жанру</h3>
-            <ul class="movie_list mb-4 mt-2 ml-1">
+            <h3 class="genres_head_mobile font-bold text-gray-500  mt-1 pb-3 pt-3 border-b border-gray-700">По жанру</h3>
+            <ul class="movie_list_mobile mb-4 mt-2 ml-1">
                 @foreach($genres as $key=>$value)
                     <x-genres-filter :key="$key" :value="$value"/>
                 @endforeach
             </ul>
-            <h3 class="country_head font-bold text-gray-500 mt-1 pb-3 pt-3 border-b border-gray-700">По стране</h3>
-            <ul class="countries_list mb-4 mt-2 ml-1"> 
+            <h3 class="country_head_mobile font-bold text-gray-500 mt-1 pb-3 pt-3 border-b border-gray-700">По стране</h3>
+            <ul class="countries_list_mobile mb-4 mt-2 ml-1"> 
                 @foreach($countries as $key=>$value) 
                 
                     {{-- {{count($countries)}} --}}
                     <x-country-filter :key="$key" :value="$value"/>
                 @endforeach
             </ul>
-            <h3 class="years_head font-bold text-gray-500 mt-1 pb-3 pt-3 border-b border-gray-700">По году</h3>
-            <ul class="years_list mb-4 mt-2 ml-1">
+            <h3 class="years_head_mobile font-bold text-gray-500 mt-1 pb-3 pt-3 border-b border-gray-700">По году</h3>
+            <ul class="years_list_mobile mb-4 mt-2 ml-1">
                 @foreach($years as $key => $year)
                    
                     {{-- @if($key == 4 || $key == 9 || $key == 14 || $key == 19)
@@ -41,8 +41,8 @@
                    
                 @endforeach
             </ul>
-            <h3 class="raiting_head font-bold text-gray-500 mt-1 pb-3 pt-3 border-b border-gray-700">По рэйтингу</h3>
-            <ul class="raiting_list mb-4 mt-2 ml-1">
+            <h3 class="raiting_head_mobile font-bold text-gray-500 mt-1 pb-3 pt-3 border-b border-gray-700">По рэйтингу</h3>
+            <ul class="raiting_list_mobile mb-4 mt-2 ml-1">
                 <x-average-filter :key="$key" :value="$value"/>
             </ul>
         </div> 

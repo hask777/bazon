@@ -132,7 +132,10 @@ class MoviesController extends Controller
         if(empty($result['error'])){          
             $videos = Http::get('https://bazon.cc/api/search?token=a27474c28593adb669d04ead29ee0c41&title='.$movie['original_title'].'')
             ->json()['results'];
-            // dump($videos);
+            dump($videos);
+
+            
+            // $text = htmlspecialchars_decode($text);
 
         }else{
             $result = Http::get('https://bazon.cc/api/search?token=a27474c28593adb669d04ead29ee0c41&title='.$movie['title'].'')
@@ -141,14 +144,12 @@ class MoviesController extends Controller
             if(empty($result['error'])){
                 $videos = Http::get('https://bazon.cc/api/search?token=a27474c28593adb669d04ead29ee0c41&title='. $movie['title'].'')
                 ->json()['results'];
-                // dump($videos);
-                
             }else{
                 $videos = 'NO';
             }
         }
 
-        // dump($videos);
+        dump($videos);
 
         $movie_year = \Carbon\Carbon::parse($movie['release_date'])->format('Y');
 
@@ -184,13 +185,15 @@ class MoviesController extends Controller
             }
         }else{
             foreach($videos as $video){
+                dump( str_replace("&nbsp;",' ',$video['info']['rus']));
+                // dump($movie['title']);
                 if(!empty($video)){
-                    if(
-                        $video['info']['orig'] === $movie['original_title'] &&
+                    if(     
+                        str_replace("&nbsp;",' ',$video['info']['orig']) === $movie['original_title'] &&
                         $video['info']['year'] === $movie_year ||
-                        $video['info']['rus'] === $movie['title'] &&
-                        $video['info']['year'] === $movie_year
-                    ){
+                        str_replace("&nbsp;",' ',$video['info']['rus']) === $movie['title'] &&
+                        $video['info']['year'] === $movie_year          
+                    ){          
                         if(!empty($collection)){
                             return view('movies.show', [
                                 'collection' => $collection,
@@ -269,10 +272,10 @@ class MoviesController extends Controller
         foreach($videos as $video){
             if(!empty($video)){
                 if(
-                    $video['info']['orig'] === $movie['original_title'] &&
+                    str_replace("&nbsp;",' ',$video['info']['orig']) === $movie['original_title'] &&
                     $video['info']['year'] === $movie_year ||
-                    $video['info']['rus'] === $movie['title'] &&
-                    $video['info']['year'] === $movie_year
+                    str_replace("&nbsp;",' ',$video['info']['rus']) === $movie['title'] &&
+                    $video['info']['year'] === $movie_year        
                 ){
                     return view('movies.show', [
                         'collection' => $collection,

@@ -4,39 +4,48 @@
     </div> 
     <div class="bg-gray-800 p-4">
         <div class="mb-4">
-            <h2 class='capitalize  tracking-wider text-center text-orange-500 text-2xl  text-center font-semibold'>Фильмы</h2>
+            <h2 class='capitalize  tracking-wider text-center text-gray-500 text-2xl  text-center font-semibold'>Фильмы</h2>
         </div>
-        <livewire:search-dropdown>
+
+        <livewire:movies-search-dropdown>
+
+        <div class="filter_inner px-2 text-center">
+
             @include('partials.buttons')
-        <h3 class="font-bold text-orange-500  mt-6">Жанры:</h3>
-        <ul class="movie_list text-sm mb-4 mt-1 ml-1">
-            @foreach($genres as $key=>$value)
-                <x-genres-filter :key="$key" :value="$value"/>
-            @endforeach
-        </ul>
-        <h3 class="font-bold text-orange-500 mt-6 ">Страна:</h3>
-        <ul class="countries_list text-sm mb-4 mt-2 ml-1 grid">
 
-            @foreach($countries as $key=>$value) 
-            
-                {{-- {{count($countries)}} --}}
-                <x-country-filter :key="$key" :value="$value"/>
-            @endforeach
-        </ul>
-        <h3 class="font-bold text-orange-500 mt-6">Год:</h3>
-        <ul class="years_list text-sm mb-4 mt-2">
-            @foreach($years as $key => $year)
-               
-                {{-- @if($key == 4 || $key == 9 || $key == 14 || $key == 19)
-                    <x-year-filter :year="$year"/><br>
-                    @else
+            <h3 class="genres_head font-bold text-gray-500  mt-1 pb-3 pt-3 border-b border-gray-700">По жанру</h3>
+            <ul class="movie_list mb-4 mt-2 ml-1">
+                @foreach($genres as $key=>$value)
+                    <x-genres-filter :key="$key" :value="$value"/>
+                @endforeach
+            </ul>
+            <h3 class="country_head font-bold text-gray-500 mt-1 pb-3 pt-3 border-b border-gray-700">По стране</h3>
+            <ul class="countries_list mb-4 mt-2 ml-1"> 
+                @foreach($countries as $key=>$value) 
+                
+                    {{-- {{count($countries)}} --}}
+                    <x-country-filter :key="$key" :value="$value"/>
+                @endforeach
+            </ul>
+            <h3 class="years_head font-bold text-gray-500 mt-1 pb-3 pt-3 border-b border-gray-700">По году</h3>
+            <ul class="years_list mb-4 mt-2 ml-1">
+                @foreach($years as $key => $year)
+                   
+                    {{-- @if($key == 4 || $key == 9 || $key == 14 || $key == 19)
+                        <x-year-filter :year="$year"/><br>
+                        @else
+                        <x-year-filter :year="$year"/>
+                    @endif --}}
+    
                     <x-year-filter :year="$year"/>
-                @endif --}}
-
-                <x-year-filter :year="$year"/><br>
-               
-            @endforeach
-        </ul>
+                   
+                @endforeach
+            </ul>
+            <h3 class="raiting_head font-bold text-gray-500 mt-1 pb-3 pt-3 border-b border-gray-700">По рэйтингу</h3>
+            <ul class="raiting_list mb-4 mt-2 ml-1">
+                <x-average-filter :key="$key" :value="$value"/>
+            </ul>
+        </div> 
     </div>
 </div>
 

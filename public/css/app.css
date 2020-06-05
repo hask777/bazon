@@ -304,7 +304,7 @@ body {
   border-radius: 50%;
   /* border: 3px solid #58c976; */
   background: #222;
-  z-index: 9999;
+  z-index: 9000;
 }
 
 .percent .number {
@@ -1023,7 +1023,7 @@ body {
   position: fixed;
   overflow-x: hidden;
   top: 0;
-  z-index: 9998;
+  z-index: 9999;
   width: 100%;
   min-height: 100%;
   background-color: #2d3748;

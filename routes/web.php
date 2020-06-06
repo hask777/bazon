@@ -12,6 +12,7 @@ Route::get('/movies/year', 'YearController@index')->name('year.index');
 Route::get('/movies/countries', 'CountryController@index')->name('country.index');
 Route::get('/movies/average', 'AverageController@index')->name('average.index');
 Route::get('/movies/trending', 'TrendingController@index')->name('trending.index');
+Route::get('/movies/company', 'CompanyController@index')->name('company.index');
 
 // TVs
 Route::get('/tvs/popular', 'TvController@index')->name('tv.index');

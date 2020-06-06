@@ -633,6 +633,24 @@ body {
   cursor: pointer;
 }
 
+.show .movie_content {
+  width: 100%;
+}
+
+.show .movie_content .movie_buttons {
+  width: 100%;
+}
+
+.show .movie_content .movie_buttons #play_trailer,
+.show .movie_content .movie_buttons #play_movie {
+  border: none;
+  outline: none;
+}
+
+.show .movie_content .movie_buttons #play_trailer {
+  background-color: #2d3748;
+}
+
 @media (max-width: 1024px) {
   .recomend {
     display: none;
@@ -653,6 +671,7 @@ body {
   .movie_content .movie_buttons #play_trailer,
   .movie_content .movie_buttons #play_movie {
     border: none;
+    outline: none;
     display: block;
     max-width: 50%;
   }

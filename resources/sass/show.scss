@@ -34,6 +34,20 @@
     .recomendations, .similar{
         cursor: pointer;
     }
+    .movie_content{
+        width: 100%;
+        .movie_buttons{
+            width: 100%;
+            #play_trailer, #play_movie{
+                border: none;
+                outline:none;
+            }
+            #play_trailer{
+                background-color: $second_blue;
+            }
+        }
+        
+    }
 }
 
 @media (max-width: 1024px) { 
@@ -50,6 +64,7 @@
             width: 100%;
             #play_trailer, #play_movie{
                 border: none;
+                outline:none;
                 display: block;
                 max-width: 50%;
                 span{

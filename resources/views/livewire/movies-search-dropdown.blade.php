@@ -22,7 +22,7 @@
             x-show="isOpen"
         >
             @if ($searchResults->count() > 0)
-                <ul>
+                <ul class="moviie_search_list">
                     @foreach ($searchResults as $result)
                         <li class='border-b border-gray-700 w-100'>
                             <a 
@@ -43,6 +43,13 @@
                             </a>
                         </li>
                     @endforeach
+                    {{-- <li class='w-100 px-3 py-3 flex justify-center items-center'>
+                        <a href="" class="text-xs block hover:bg-gray-700 px-3 py-3 flex 
+                        transition ease-in-out duration-150">
+                            Cмотреть все...
+                        </a>
+                        
+                    </li> --}}
                 </ul>
             @else
                 <div class="px-3 py-3">

@@ -601,7 +601,7 @@ body {
 }
 
 .show .movie_content {
-  min-width: 100%;
+  width: 100%;
 }
 
 .show .raiting .show_movie_percent {
@@ -698,6 +698,11 @@ body {
 
 .multi_search {
   z-index: 9999;
+}
+
+.moviie_search_list {
+  height: 500px;
+  overflow-y: scroll;
 }
 
 .filter {

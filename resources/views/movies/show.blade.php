@@ -8,7 +8,7 @@
             <h2 class='movies_header_title capitalize tracking-wider text-gray-500 text-2xl  text-center font-semibold'>{{ $movie['original_title'] }} | {{ $movie['title'] }}</h2>        
         </div>
         @if(!empty($collection) && !empty($recomend) && !empty($similar))
-        <div class="sm:flex mx-auto mt-6 momvie-info border-b border-gray-800">
+        <div class="md:flex mx-auto mt-6 momvie-info border-b border-gray-800">
             {{-- Poster --}}
             <div class="movie_item_poster mb-10">
                 @if ($movie['poster_path'])

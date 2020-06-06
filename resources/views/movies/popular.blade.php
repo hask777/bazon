@@ -9,7 +9,7 @@
         <div class="popular_movies w-80%">
             <div class="movies_header md:flex items-center">
                          
-                <h2 class='movies_header_title capitalize tracking-wider text-gray-500 text-2xl  text-center font-semibold
+                <h2 class='movies_header_title tracking-wider text-gray-500 text-2xl  text-center font-semibold
                '>     
                     Популярные         
                 </h2>

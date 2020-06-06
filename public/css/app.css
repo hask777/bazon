@@ -891,6 +891,10 @@ body {
   /* Handle on hover */
 }
 
+.filter_mobile h3 {
+  cursor: pointer;
+}
+
 .filter_mobile ::-webkit-scrollbar {
   width: 4px;
 }
@@ -900,7 +904,7 @@ body {
 }
 
 .filter_mobile ::-webkit-scrollbar-thumb {
-  background: #ed8936;
+  background: #4299e1;
 }
 
 .filter_mobile ::-webkit-scrollbar-thumb:hover {
@@ -911,39 +915,44 @@ body {
   width: 100%;
 }
 
-.filter_mobile .movie_list {
-  max-height: 100px;
+.filter_mobile .movie_list_mobile {
+  max-height: 200px;
   margin-bottom: 40px;
   overflow-y: scroll;
+  overflow-x: hidden;
   background-color: #2d3748;
   padding: 0 10px;
   border: 1px solid #2d3748;
 }
 
-.filter_mobile .movie_list:hover {
+.filter_mobile .movie_list_mobile:hover {
   box-sizing: border-box;
   border: 1px solid #4299e1;
 }
 
-.filter_mobile .movie_list li button {
+.filter_mobile .movie_list_mobile li button {
   font-size: 1rem;
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: 500;
+  padding: 0 4px;
 }
 
-.filter_mobile .movie_list li:hover button {
+.filter_mobile .movie_list_mobile li:hover button {
   display: block;
   width: 100%;
-  color: #ed8936;
+  color: #4299e1;
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 500;
   background-color: #1a202c;
 }
 
-.filter_mobile .movie_list .genre_active {
+.filter_mobile .movie_list_mobile .genre_active {
   background-color: #2d3748;
 }
 
-.filter_mobile .countries_list {
-  max-height: 100px;
+.filter_mobile .countries_list_mobile {
+  max-height: 200px;
   margin-bottom: 40px;
   overflow-y: scroll;
   background-color: #2d3748;
@@ -951,56 +960,63 @@ body {
   border: 1px solid #2d3748;
 }
 
-.filter_mobile .countries_list:hover {
+.filter_mobile .countries_list_mobile:hover {
   box-sizing: border-box;
   border: 1px solid #4299e1;
 }
 
-.filter_mobile .countries_list li button {
+.filter_mobile .countries_list_mobile li button {
   font-size: 1rem;
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: 500;
+  padding: 0 4px;
 }
 
-.filter_mobile .countries_list li:hover button {
+.filter_mobile .countries_list_mobile li:hover button {
   display: block;
   width: 100%;
-  color: #ed8936;
+  color: #4299e1;
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 500;
   background-color: #1a202c;
 }
 
-.filter_mobile .countries_list .country_active {
+.filter_mobile .countries_list_mobile .country_active {
   background-color: #2d3748;
 }
 
-.filter_mobile .years_list {
-  max-height: 70px;
-  margin-bottom: 40px;
+.filter_mobile .years_list_mobile {
+  max-height: 200px;
   overflow-y: scroll;
   background-color: #2d3748;
   padding: 0 10px;
   border: 1px solid #2d3748;
 }
 
-.filter_mobile .years_list:hover {
+.filter_mobile .years_list_mobile:hover {
   box-sizing: border-box;
   border: 1px solid #4299e1;
 }
 
-.filter_mobile .years_list li button {
+.filter_mobile .years_list_mobile li button {
   font-size: 1rem;
+  text-align: left;
+  font-weight: 500;
+  padding: 0 4px;
 }
 
-.filter_mobile .years_list li:hover button {
+.filter_mobile .years_list_mobile li:hover button {
   display: block;
   width: 100%;
-  color: #ed8936;
+  text-align: center;
+  color: #4299e1;
   font-size: 1rem;
-  font-weight: bold;
-  background-color: #2d3748;
+  font-weight: 500;
+  background-color: #1a202c;
 }
 
-.filter_mobile .years_list .country_active {
+.filter_mobile .years_list_mobile .country_active {
   background-color: #2d3748;
 }
 

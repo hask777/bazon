@@ -3,6 +3,9 @@
     margin-left: auto;
     margin-right: auto;
     height: 100%;
+    h3{
+        cursor: pointer;
+    }
     /* width */
     ::-webkit-scrollbar {
         width: 4px;
@@ -15,7 +18,7 @@
     
     /* Handle */
     ::-webkit-scrollbar-thumb {
-        background:  $orange;
+        background:  rgba(66, 153, 225);
     }
     
     /* Handle on hover */
@@ -27,13 +30,15 @@
         // max-width: 190px;
         width: 100%;
     }
-    .movie_list{
-        max-height: 100px;
+    .movie_list_mobile{
+        max-height: 200px;
         margin-bottom: 40px;
         overflow-y: scroll;
+        overflow-x: hidden;
         background-color: $second_blue;
         padding: 0 10px;
         border: 1px solid $second_blue;
+       
         &:hover{
             box-sizing: border-box;
             border: 1px solid rgba(66, 153, 225);
@@ -41,15 +46,19 @@
         li{
             button{
                 font-size: 1rem;
+                text-align: center;
+                text-transform: capitalize;
+                font-weight: 500;
+                padding: 0 4px;
             }
             
             &:hover{
                 button{
                     display: block;
                     width: 100%;
-                    color: $orange;
+                    color: rgba(66, 153, 225);
                     font-size: 1rem;  
-                    font-weight: bold;
+                    font-weight: 500;
                     background-color: $main_blue;
                 }
                
@@ -58,9 +67,8 @@
         .genre_active{
             background-color: $second_blue;
         }   
-    }
-    .countries_list{
-        max-height: 100px;
+    }.countries_list_mobile{
+        max-height: 200px;
         margin-bottom: 40px;
         overflow-y: scroll;
         background-color: $second_blue;
@@ -73,15 +81,19 @@
         li{
             button{
                 font-size: 1rem;
+                text-align: center;
+                text-transform: capitalize;
+                font-weight: 500;
+                padding: 0 4px;
             }
             
             &:hover{
                 button{
                     display: block;
                     width: 100%;
-                    color: $orange;
+                    color: rgba(66, 153, 225);
                     font-size: 1rem;  
-                    font-weight: bold;
+                    font-weight: 500;
                     background-color: $main_blue;
                 }
                
@@ -91,9 +103,9 @@
             background-color: $second_blue;
         }  
     }
-    .years_list{
-        max-height: 70px;
-        margin-bottom: 40px;
+    .years_list_mobile{
+        max-height: 200px;
+        // margin-bottom: 40px;
         overflow-y: scroll;
         background-color: $second_blue;
         padding: 0 10px;
@@ -105,16 +117,20 @@
         li{
             button{
                 font-size: 1rem;
+                text-align: left;
+                font-weight: 500;
+                padding: 0 4px;
             }
             
             &:hover{
                 button{
                     display: block;
                     width: 100%;
-                    color: $orange;
+                    text-align: center;
+                    color: rgba(66, 153, 225);
                     font-size: 1rem;  
-                    font-weight: bold;
-                    background-color: $second_blue;
+                    font-weight: 500;
+                    background-color: $main_blue;
                 }
                
             }

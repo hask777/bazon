@@ -72,7 +72,7 @@ jQuery(document).ready(function ($) {
 			$('.raiting_list').slideToggle();		
 	});
 
-	// // Mobile
+	// Mobile
 	$('.movie_list_mobile').hide();
 	$('.genres_head_mobile').on('click', function(){
 		$('.movie_list_mobile').slideToggle();		
@@ -94,8 +94,8 @@ jQuery(document).ready(function ($) {
 	});
 
 	// Average filter
-	$('#movie_raiting').mousemove(function() {
-		$('#movie_raiting_value').text($(this).val());
+	$('.movie_raiting').mousemove(function() {
+		$('.movie_raiting_value').text($(this).val());
 	});
 
 	// Show recomendations similar 

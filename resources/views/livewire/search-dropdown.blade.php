@@ -24,6 +24,7 @@
             @if ($searchResults->count() > 0)
                 <ul>
                     @foreach ($searchResults as $result)
+
                         <li class='border-b border-gray-700 w-100'>
                             <a 
                                 href="{{route('movies.show', $result['id'])}}" 
@@ -34,12 +35,12 @@
                                 @endif
 
                             >
-                                @if ($result['poster_path'])
+                                {{-- @if ($result['poster_path'])
                                     <img src="https://image.tmdb.org/t/p/w92/{{$result['poster_path']}}" alt="poster" class="w-8">
                                 @else
                                     <img src="https://via.placeholder.com/50x75" alt="poster" class="w-8">
-                                @endif
-                                <span class="ml-4">{{$result['title']}}</span>
+                                @endif --}}
+                                <span class="ml-4">{{ urldecode($result['name']) }}</span>
                             </a>
                         </li>
                     @endforeach

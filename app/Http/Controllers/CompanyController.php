@@ -26,12 +26,12 @@ class CompanyController extends Controller
         include 'inc/years.php';
         include 'inc/countries.php';
         include 'inc/sidebar.php';
-        include 'inc/movies/popular_pagination.php';
+        include 'inc/movies/company_pagination.php';
 
         $company = Http::withToken(config('services.tmdb.token'))
             ->get('https://api.themoviedb.org/3/discover/movie?with_companies=420&append_to_response=&language=ru')
             ->json()['results'];
-            dump($company);
+            // dump($company);
 
         return view('movies.company', [
             'company' => $company,
@@ -44,7 +44,7 @@ class CompanyController extends Controller
             'countries' => $countries,
             'years' => $years,
             'sidebarFutureMovies' => $sidebarFutureMovies,
-            'popular_paginate' => $popular_paginate
+            'company_paginate' => $company_paginate
         ]);
     }
 

@@ -23,6 +23,11 @@
         Скоро
     </a>
 </h3>
+<h3 class="font-bold text-gray-500  mt-1 pb-3  pt-3 border-b border-gray-700 text-center">
+    <a href="{{route('company.index')}}">
+        <img src="{{asset('img/marvel.svg.webp')}}" class="w-50%" alt="">
+    </a>
+</h3>
 
 
 

@@ -19,7 +19,6 @@
                        <span class="w-10% ml-2">
                             <img src="{{asset('img/marvel.svg.webp')}}" class="w-50%" alt="фильмы марвел">
                        </span>
-  
                 </h2>
                 
             </div>

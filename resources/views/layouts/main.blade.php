@@ -21,7 +21,7 @@
        
 
         <header class="border-b border-gray-800">
-            <div class="header_wrapper container mx-auto px-4 py-8 flex">
+            <div class="header_wrapper container mx-auto  px-4 py-4 flex">
                 {{-- <div class="mobile_menu_button">
                     <i class="fa fa-bars" aria-hidden="true"></i>
                 </div> --}}

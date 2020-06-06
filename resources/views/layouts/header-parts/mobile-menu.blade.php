@@ -1,7 +1,7 @@
 <ul class="mx-auto
 pr-2">
     <li class="mobile_menu_item films border-b  border-gray-800 border-t border-gray-800 pb-3 pt-3">
-        <a href="{{route('company.index')}}">
+        <a href="{{route('trending.index')}}">
         В трендах      
         </a>
     </li>            

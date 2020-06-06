@@ -18,7 +18,7 @@
 
     @if (strlen($search) >= 2)
         <div
-            class="absolute bg-gray-800 text-sm rounded z-50  mt-4" 
+            class="multi_search absolute bg-gray-800 text-sm rounded z-50  mt-4" 
             x-show="isOpen"
         >
             @if ($searchResults->count() > 0)

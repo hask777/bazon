@@ -677,6 +677,10 @@ body {
   }
 }
 
+.multi_search {
+  z-index: 9999;
+}
+
 .filter {
   max-width: 224px;
   /* width */

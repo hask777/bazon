@@ -35,12 +35,18 @@
                                 @endif
 
                             >
-                                {{-- @if ($result['poster_path'])
+                                @if (!empty($result['poster_path']))
                                     <img src="https://image.tmdb.org/t/p/w92/{{$result['poster_path']}}" alt="poster" class="w-8">
                                 @else
                                     <img src="https://via.placeholder.com/50x75" alt="poster" class="w-8">
-                                @endif --}}
-                                <span class="ml-4">{{ urldecode($result['name']) }}</span>
+                                @endif
+                                @if(!empty($result['title']))
+                                    <span class="ml-4">{{ $result['title'] }}</span>
+                                @endif
+                                 @if(!empty($result['name']))
+                                    <span class="ml-4">{{ $result['name'] }}</span>
+                                @endif
+
                             </a>
                         </li>
                     @endforeach

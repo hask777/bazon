@@ -51,14 +51,14 @@
 
         <footer class="border-t border-gray-800">
             <div class="container mx-auto px-4 py-6 flex justify-center">
-                <img src="{{secure_asset('img/icons/telegram.svg')}}" alt="" class="ml-1">
+                {{-- <img src="{{secure_asset('img/icons/telegram.svg')}}" alt="" class="ml-1">
                 <img src="{{secure_asset('img/icons/odnaklassniki.svg')}}" alt="" class="ml-1">
                 <img src="{{secure_asset('img/icons/facebook.svg')}}" alt="" class="ml-1">
-                <img src="{{secure_asset('img/icons/vkontakte.svg')}}" alt="" class="ml-1">
-                {{-- <img src="{{asset('img/icons/telegram.svg')}}" alt="" class="ml-1">
+                <img src="{{secure_asset('img/icons/vkontakte.svg')}}" alt="" class="ml-1"> --}}
+                <img src="{{asset('img/icons/telegram.svg')}}" alt="" class="ml-1">
                 <img src="{{asset('img/icons/odnaklassniki.svg')}}" alt="" class="ml-1">
                 <img src="{{asset('img/icons/facebook.svg')}}" alt="" class="ml-1">
-                <img src="{{asset('img/icons/vkontakte.svg')}}" alt="" class="ml-1"> --}}
+                <img src="{{asset('img/icons/vkontakte.svg')}}" alt="" class="ml-1">
             </div>     
         </footer>
 
@@ -98,10 +98,10 @@
         <livewire:scripts>
 
        
-        <script type="text/javascript" src="{{secure_asset('js/main.js')}}"></script>
-        <script type="text/javascript" src="{{secure_asset('js/swiper.js')}}"></script>
-        {{-- <script type="text/javascript" src="{{asset('js/main.js')}}"></script>
-        <script type="text/javascript" src="{{asset('js/swiper.js')}}"></script> --}}
+        {{-- <script type="text/javascript" src="{{secure_asset('js/main.js')}}"></script>
+        <script type="text/javascript" src="{{secure_asset('js/swiper.js')}}"></script> --}}
+        <script type="text/javascript" src="{{asset('js/main.js')}}"></script>
+        <script type="text/javascript" src="{{asset('js/swiper.js')}}"></script>
 
       
     </body>

@@ -27,10 +27,7 @@
             margin-left: 78px;
         }
     }
-    .collection_wrapper .collection_slide{
-        // padding-left: 10px;
-        padding-right: 20px;
-    }
+    
     .recomendations, .similar{
         cursor: pointer;
     }
@@ -53,6 +50,11 @@
 @media (max-width: 1024px) { 
     .recomend{
         display: none;
+    }
+
+    .collection_wrapper .collection_slide{
+        // padding-left: 10px;
+        padding-right: 20px;
     }
 
     .recomend_mobile{

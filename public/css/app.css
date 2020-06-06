@@ -624,10 +624,6 @@ body {
   margin-left: 78px;
 }
 
-.show .collection_wrapper .collection_slide {
-  padding-right: 20px;
-}
-
 .show .recomendations,
 .show .similar {
   cursor: pointer;
@@ -654,6 +650,10 @@ body {
 @media (max-width: 1024px) {
   .recomend {
     display: none;
+  }
+
+  .collection_wrapper .collection_slide {
+    padding-right: 20px;
   }
 
   .recomend_mobile {

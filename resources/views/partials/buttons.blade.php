@@ -1,4 +1,9 @@
-<h3  class="font-bold text-gray-500  mt-6 pb-3 pt-3 border-b border-gray-700 border-t border-gray-700">
+<h3  class="font-bold text-gray-500  mt-6 pb-3 pt-3 border-b border-gray-700">
+    <a href="{{route('trending.index')}}">
+        В тренде
+    </a> 
+<h3>
+<h3  class="font-bold text-gray-500  mt-1 pb-3 pt-3 border-b border-gray-700 ">
     <a href="{{route('movies.index')}}">
         Популярные
     </a> 

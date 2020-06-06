@@ -90,9 +90,9 @@
 
         @if(!empty($recomend) || !empty($similar))
         {{-- Recomindations --}}
-            <div class="recomended_title mt-4 flex">
-                <h2 class='movies_header_title recomendations capitalize tracking-wider text-gray-500 text-2xl   font-semibold'>Рекомендованные</h2>
-                <h2 class='movies_header_title similar capitalize tracking-wider text-gray-500 text-2xl   font-semibold ml-4'>Похожие</h2>       
+            <div class="recomended_title flex">
+                <h2 class='movies_header_title recomendations capitalize tracking-wider text-gray-500 text-2xl   font-semibold bg-gray-800 px-3 py-4'>Рекомендованные</h2>
+                <h2 class='movies_header_title similar capitalize tracking-wider text-gray-500 text-2xl  font-semibold ml-4 px-3 py-4'>Похожие</h2>       
             </div>
 
             <div class="recomendations_movies sm:flex mx-auto mt-6 momvie-info pb-10">

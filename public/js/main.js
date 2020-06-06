@@ -102,11 +102,15 @@ jQuery(document).ready(function ($) {
 
 	$('.similar_movies').hide();
 	$('.similar').on('click', function(){
+		$('.similar').css('background-color','#2d3748' );
+		$('.recomendations').css('background-color','#1a202c' );
 		$('.recomendations_movies').hide();
 		$('.similar_movies').show();
 	});
 
 	$('.recomendations').on('click', function(){
+		$('.similar').css('background-color','#1a202c' );
+		$('.recomendations').css('background-color','#2d3748' );
 		$('.recomendations_movies').show();
 		$('.similar_movies').hide();
 	});

@@ -101,6 +101,11 @@ class TvController extends Controller
             ->get('https://api.themoviedb.org/3/tv/'. $id . '?language=ru')
             ->json();
 
+        $credits = Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/3/tv/'. $id . '/credits?append_to_response=language=ru-RU')
+            ->json();
+            // dd($credits);
+
         // dump($movie);  
 
         $videocdn_tvs = Http::get('https://videocdn.tv/api/tv-series?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['original_name'] .'&limit=10')
@@ -139,7 +144,7 @@ class TvController extends Controller
                 }
             }
         }
-        dump($tvs);  
+        // dump($tvs);  
         
 
         if(!empty($videocdn_tvs) && !empty($video)){
@@ -149,6 +154,7 @@ class TvController extends Controller
                     // dump($videocdn_tv);
                     return view('tv.show', [
                         'genres' => $genres,
+                        'credits' => $credits,
                         'countries' => $countries,
                         'years' => $years,
                         'sidebarFutureMovies' => $sidebarFutureMovies,
@@ -164,6 +170,7 @@ class TvController extends Controller
             // dump($videocdn_tv);
             return view('tv.show', [
                 'genres' => $genres,
+                'credits' => $credits,
                 'countries' => $countries,
                 'years' => $years,
                 'sidebarFutureMovies' => $sidebarFutureMovies,
@@ -179,6 +186,7 @@ class TvController extends Controller
                     // dump($videocdn_tv);
                     return view('tv.show', [
                         'genres' => $genres,
+                        'credits' => $credits,
                         'countries' => $countries,
                         'years' => $years,
                         'sidebarFutureMovies' => $sidebarFutureMovies,
@@ -196,6 +204,7 @@ class TvController extends Controller
                     // dump($videocdn_tv);
                     return view('tv.show', [
                         'genres' => $genres,
+                        'credits' => $credits,
                         'countries' => $countries,
                         'years' => $years,
                         'sidebarFutureMovies' => $sidebarFutureMovies,
@@ -211,6 +220,7 @@ class TvController extends Controller
         if(!empty($video) && !empty($videocdn_tv)){
             return view('tv.show', [
                 'genres' => $genres,
+                'credits' => $credits,
                 'countries' => $countries,
                 'years' => $years,
                 'sidebarFutureMovies' => $sidebarFutureMovies,
@@ -221,6 +231,7 @@ class TvController extends Controller
         }elseif(!empty($video) && empty($videocdn_tv)){
             return view('tv.show', [
                 'genres' => $genres,
+                'credits' => $credits,
                 'countries' => $countries,
                 'years' => $years,
                 'sidebarFutureMovies' => $sidebarFutureMovies,
@@ -231,6 +242,7 @@ class TvController extends Controller
         }elseif(empty($video) && empty($videocdn_tv)){
             return view('tv.show', [
                 'genres' => $genres,
+                'credits' => $credits,
                 'countries' => $countries,
                 'years' => $years,
                 'sidebarFutureMovies' => $sidebarFutureMovies,
@@ -241,6 +253,7 @@ class TvController extends Controller
         }else{
             return view('tv.show', [
                 'genres' => $genres,
+                'credits' => $credits,
                 'countries' => $countries,
                 'years' => $years,
                 'sidebarFutureMovies' => $sidebarFutureMovies,

@@ -18,6 +18,7 @@
                 @endif                    
             </div>
             {{-- End Poster --}}
+
             {{-- Movie --}}
             <div class="container flex flex-col md:flex-row">
                 <div class="movie_content sm:ml-8 md:ml-8">
@@ -96,7 +97,6 @@
                             </p>
                         @endif
                     </div>
-                    
                     {{-- end movie overview --}}
                    
                     <div class="mt-12 pb-12">

@@ -67,32 +67,58 @@
                     </div>
                     {{-- end casts --}}
                     <div class="mt-12 pb-12">
-                       
-                        {{-- <button id="play_movie" class="flex inline-flex items-center bg-orange-500 teext-gray-900 rounded font-semibold px-5 py-4 hover:bg-orange-600 transition ease-in-out duration-150">
+                        @if($videos != 'NO' && $videocdn_tv != 'NO')
+                            <button id="tv_play_movie" class="flex inline-flex items-center bg-orange-500 teext-gray-900 rounded font-semibold px-5 py-4 hover:bg-orange-600 transition ease-in-out duration-150">
+                                <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                <span class="ml-2">Плеер 1</span>
+                            </button>
+                            <button id="tv_play_movie" class="flex inline-flex items-center bg-orange-500 teext-gray-900 rounded font-semibold px-5 py-4 hover:bg-orange-600 transition ease-in-out duration-150">
+                                <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                <span class="ml-2">Плеер 2</span>
+                            </button>
 
-                            <i class="fa fa-play-circle-o" aria-hidden="true"></i>
-                            <span class="ml-2">Смотреть Фильм</span>
-                        </button> --}}
-                          
-                        @if($videos == 'NO')
-                            <div class="videocdn_tv">
-                                <span> Нет фильма!</span>                       
-                            </div>              
-                        @else
-                            <div class="videocdn_tv">
-                                <iframe src="{{$videos['link']}}"  frameborder="0" allowfullscreen></iframe>
-                            </div>
+                            @if(!empty($videos['link']))            
+                                <div class="videocdn_tv">
+                                    <iframe src="{{$videos['link']}}"  frameborder="0" allowfullscreen></iframe>
+                                </div>
+                            @endif 
+
+                            @if(!empty($videocdn_tv['preview_iframe_src']))                              
+                                <div class="videocdn_tv">
+                                    <iframe src="{{$videocdn_tv['preview_iframe_src']}}"  frameborder="0" allowfullscreen></iframe>
+                                </div>
+                            @endif
+
+                        @elseif($videos == 'NO' && $videocdn_tv != 'NO')
+
+                            <button id="tv_play_movie" class="flex inline-flex items-center bg-orange-500 teext-gray-900 rounded font-semibold px-5 py-4 hover:bg-orange-600 transition ease-in-out duration-150">
+                                <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                <span class="ml-2">Плеер 1</span>
+                            </button>
+
+                            @if(!empty($videocdn_tv['preview_iframe_src']))                              
+                                <div class="videocdn_tv">
+                                    <iframe src="{{$videocdn_tv['preview_iframe_src']}}"  frameborder="0" allowfullscreen></iframe>
+                                </div>
+                            @endif
+
+                        @elseif($videos != 'NO' && $videocdn_tv == 'NO')
+
+                            <button id="tv_play_movie" class="flex inline-flex items-center bg-orange-500 teext-gray-900 rounded font-semibold px-5 py-4 hover:bg-orange-600 transition ease-in-out duration-150">
+                                <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                <span class="ml-2">Плеер 1</span>
+                            </button>
+
+                            @if(!empty($videos['link']))            
+                                <div class="videocdn_tv">
+                                    <iframe src="{{$videos['link']}}"  frameborder="0" allowfullscreen></iframe>
+                                </div>
+                            @endif
+
                         @endif
-                        
-                        @if($videocdn_tv == 'NO')
-                        <div class="videocdn_tv">
-                            <span> Нет фильма!</span>                       
-                        </div>              
-                        @else
-                            <div class="videocdn_tv">
-                                <iframe src="{{$videocdn_tv['preview_iframe_src']}}"  frameborder="0" allowfullscreen></iframe>
-                            </div>
-                        @endif
+                       
+
+                       
                     </div>
                     {{-- end casts --}}
                 </div>

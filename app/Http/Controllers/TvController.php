@@ -127,20 +127,19 @@ class TvController extends Controller
                     $tvs = 'NO';
             }
         }
-    
-        // dd($tvs);
+        dump($movie);
+        // dump($videocdn_tvs);
 
-        // dd($movie);
         if(!empty($tvs) && $tvs != "NO"){
             foreach($tvs as $tv){
                 if(!empty($tv)){
-                    if($tv['info']['orig'] === $movie['original_name']){
+                    if($tv['info']['orig'] === $movie['original_name'] || $tv['info']['rus'] === $movie['name']){
                         $video = $tv;
                     }
                 }
             }
         }
-           
+        dump($tvs);  
         
 
         if(!empty($videocdn_tvs) && !empty($video)){
@@ -239,8 +238,17 @@ class TvController extends Controller
                 'videos' => "NO",
                 'videocdn_tv' => "NO"
             ]);
+        }else{
+            return view('tv.show', [
+                'genres' => $genres,
+                'countries' => $countries,
+                'years' => $years,
+                'sidebarFutureMovies' => $sidebarFutureMovies,
+                'movie' => $movie,                  
+                'videos' => 'NO',
+                'videocdn_tv' => $videocdn_tv
+            ]);
         }
-        
     }
 
     /**

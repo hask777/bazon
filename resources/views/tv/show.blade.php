@@ -156,9 +156,7 @@
                             @endif
 
                         @endif
-                       
-
-                       
+                                      
                     </div>
                     {{-- end casts --}}
                 </div>

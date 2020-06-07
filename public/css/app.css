@@ -737,7 +737,8 @@ body {
   max-width: 190px;
 }
 
-.filter .movie_list {
+.filter .movie_list,
+.filter .tv_movie_list {
   max-height: 200px;
   margin-bottom: 40px;
   overflow-y: scroll;
@@ -747,12 +748,14 @@ body {
   border: 1px solid #2d3748;
 }
 
-.filter .movie_list:hover {
+.filter .movie_list:hover,
+.filter .tv_movie_list:hover {
   box-sizing: border-box;
   border: 1px solid #4299e1;
 }
 
-.filter .movie_list li button {
+.filter .movie_list li button,
+.filter .tv_movie_list li button {
   font-size: 1rem;
   text-align: left;
   text-transform: capitalize;
@@ -760,7 +763,8 @@ body {
   padding: 0 4px;
 }
 
-.filter .movie_list li:hover button {
+.filter .movie_list li:hover button,
+.filter .tv_movie_list li:hover button {
   display: block;
   width: 100%;
   color: #4299e1;
@@ -769,11 +773,13 @@ body {
   background-color: #1a202c;
 }
 
-.filter .movie_list .genre_active {
+.filter .movie_list .genre_active,
+.filter .tv_movie_list .genre_active {
   background-color: #2d3748;
 }
 
-.filter .countries_list {
+.filter .countries_list,
+.filter .tv_countries_list {
   max-height: 200px;
   margin-bottom: 40px;
   overflow-y: scroll;
@@ -782,19 +788,22 @@ body {
   border: 1px solid #2d3748;
 }
 
-.filter .countries_list:hover {
+.filter .countries_list:hover,
+.filter .tv_countries_list:hover {
   box-sizing: border-box;
   border: 1px solid #4299e1;
 }
 
-.filter .countries_list li button {
+.filter .countries_list li button,
+.filter .tv_countries_list li button {
   font-size: 1rem;
   text-align: left;
   font-weight: 500;
   padding: 0 4px;
 }
 
-.filter .countries_list li:hover button {
+.filter .countries_list li:hover button,
+.filter .tv_countries_list li:hover button {
   display: block;
   width: 100%;
   text-align: left;
@@ -804,11 +813,13 @@ body {
   background-color: #1a202c;
 }
 
-.filter .countries_list .country_active {
+.filter .countries_list .country_active,
+.filter .tv_countries_list .country_active {
   background-color: #2d3748;
 }
 
-.filter .years_list {
+.filter .years_list,
+.filter .tv_years_list {
   max-height: 200px;
   overflow-y: scroll;
   background-color: #2d3748;
@@ -816,19 +827,22 @@ body {
   border: 1px solid #2d3748;
 }
 
-.filter .years_list:hover {
+.filter .years_list:hover,
+.filter .tv_years_list:hover {
   box-sizing: border-box;
   border: 1px solid #4299e1;
 }
 
-.filter .years_list li button {
+.filter .years_list li button,
+.filter .tv_years_list li button {
   font-size: 1rem;
   text-align: left;
   font-weight: 500;
   padding: 0 4px;
 }
 
-.filter .years_list li:hover button {
+.filter .years_list li:hover button,
+.filter .tv_years_list li:hover button {
   display: block;
   width: 100%;
   text-align: left;
@@ -838,7 +852,8 @@ body {
   background-color: #1a202c;
 }
 
-.filter .years_list .year_active {
+.filter .years_list .year_active,
+.filter .tv_years_list .year_active {
   background-color: #2d3748;
 }
 

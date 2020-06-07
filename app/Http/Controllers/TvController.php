@@ -101,20 +101,146 @@ class TvController extends Controller
             ->get('https://api.themoviedb.org/3/tv/'. $id . '?language=ru')
             ->json();
 
-        // dump($movie);  
+        dump($movie);  
 
-        $tvs = Http::get('https://videocdn.tv/api/tv-series?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['original_name'] .'&limit=10')
+        $videocdn_tvs = Http::get('https://videocdn.tv/api/tv-series?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['original_name'] .'&limit=10')
             ->json()['data'];
+        dump($videocdn_tvs);
+
+        if(empty($result['error'])){          
+            $tvs = Http::get('https://bazon.cc/api/search?token=a27474c28593adb669d04ead29ee0c41&title='.$movie['original_name'].'')
+                ->json()['results'];
+                // dump($tvs);          
+    
+        }else{
+            $result = Http::get('https://bazon.cc/api/search?token=a27474c28593adb669d04ead29ee0c41&title='.$movie['name'].'')
+                ->json();
+    
+            if(empty($result['error'])){
+                    $tvs = Http::get('https://bazon.cc/api/search?token=a27474c28593adb669d04ead29ee0c41&title='. $movie['name'].'')
+                    ->json()['results'];
+            }else{
+                    $tvs = 'NO';
+            }
+        }
+    
+        // dump($tvs);
 
         // dd($movie);
 
         foreach($tvs as $tv){
-            if($tv['orig_title'] === $movie['original_name']){
+            if($tv['info']['orig'] === $movie['original_name']){
                 $video = $tv;
             }
         }
-  
-        // dump($video);
+
+        foreach($videocdn_tvs as $videocdn_tv){
+            if($movie['original_name'] === $videocdn_tv['orig_title'] || 
+            $movie['name'] === $videocdn_tv['ru_title'] ){
+                $videocdn_tv = $videocdn_tv;
+                
+            }
+        }
+
+        if(!empty($videocdn_tvs) && !empty($video)){
+            foreach($videocdn_tvs as $videocdn_tv){
+                return view('tv.show', [
+                    'genres' => $genres,
+                    'countries' => $countries,
+                    'years' => $years,
+                    'sidebarFutureMovies' => $sidebarFutureMovies,
+                    'movie' => $movie,                  
+                    'videos' => $video,
+                    'videocdn_tv' => $videocdn_tv
+                ]);
+            }
+        }elseif(!empty($video) && empty($videocdn_tv)){
+            foreach($videocdn_tvs as $videocdn_tv){
+                return view('tv.show', [
+                    'genres' => $genres,
+                    'countries' => $countries,
+                    'years' => $years,
+                    'sidebarFutureMovies' => $sidebarFutureMovies,
+                    'movie' => $movie,                  
+                    'videos' => $video,
+                    'videocdn_tv' => 'NO'
+                ]);
+            }
+        }elseif(empty($video) && !empty($videocdn_tv)){
+            foreach($videocdn_tvs as $videocdn_tv){
+                return view('tv.show', [
+                    'genres' => $genres,
+                    'countries' => $countries,
+                    'years' => $years,
+                    'sidebarFutureMovies' => $sidebarFutureMovies,
+                    'movie' => $movie,                  
+                    'videos' => 'NO',
+                    'videocdn_tv' => $videocdn_tv
+                ]);
+            }
+        }elseif(empty($video) && empty($videocdn_tv)){
+            foreach($videocdn_tvs as $videocdn_tv){
+                return view('tv.show', [
+                    'genres' => $genres,
+                    'countries' => $countries,
+                    'years' => $years,
+                    'sidebarFutureMovies' => $sidebarFutureMovies,
+                    'movie' => $movie,                  
+                    'videos' => 'NO',
+                    'videocdn_tv' => 'NO'
+                ]);
+            }
+        }
+
+        // if(!empty($videocdn_tv) && !empty($video)){
+
+        //     return view('tv.show', [
+        //         'genres' => $genres,
+        //         'countries' => $countries,
+        //         'years' => $years,
+        //         'sidebarFutureMovies' => $sidebarFutureMovies,
+        //         'movie' => $movie,                  
+        //         'videos' => $video,
+        //         'videocdn_tv' => $videocdn_tv
+        //     ]);
+
+        // }elseif(!empty($video) && empty($videocdn_tv)){
+
+        //     return view('tv.show', [
+        //         'genres' => $genres,
+        //         'countries' => $countries,
+        //         'years' => $years,
+        //         'sidebarFutureMovies' => $sidebarFutureMovies,
+        //         'movie' => $movie,                  
+        //         'videos' => $video,
+        //         'videocdn_tv' => 'NO'
+        //     ]);
+
+        // }elseif(empty($video) && !empty($videocdn_tv)){
+
+        //     return view('tv.show', [
+        //         'genres' => $genres,
+        //         'countries' => $countries,
+        //         'years' => $years,
+        //         'sidebarFutureMovies' => $sidebarFutureMovies,
+        //         'movie' => $movie,                  
+        //         'videos' => 'NO',
+        //         'videocdn_tv' => $videocdn_tv
+        //     ]);
+
+        // }elseif(empty($video) && empty($videocdn_tv)){
+
+        //     return view('tv.show', [
+        //         'genres' => $genres,
+        //         'countries' => $countries,
+        //         'years' => $years,
+        //         'sidebarFutureMovies' => $sidebarFutureMovies,
+        //         'movie' => $movie,                  
+        //         'videos' => 'NO',
+        //         'videocdn_tv' => 'NO'
+        //     ]);
+
+        // }
 
         return view('tv.show', [
             'genres' => $genres,
@@ -122,7 +248,8 @@ class TvController extends Controller
             'years' => $years,
             'sidebarFutureMovies' => $sidebarFutureMovies,
             'movie' => $movie,                  
-            'videos' => $video
+            'videos' => $video,
+            'videocdn_tv' => $videocdn_tv
         ]);
 
     }

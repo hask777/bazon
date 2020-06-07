@@ -80,9 +80,19 @@
                             </div>              
                         @else
                             <div class="videocdn_tv">
-                                <iframe src="{{$videos['preview_iframe_src']}}"  frameborder="0" allowfullscreen></iframe>
+                                <iframe src="{{$videos['link']}}"  frameborder="0" allowfullscreen></iframe>
                             </div>
-                        @endif        
+                        @endif
+                        
+                        @if($videocdn_tv == 'NO')
+                        <div class="videocdn_tv">
+                            <span> Нет фильма!</span>                       
+                        </div>              
+                        @else
+                            <div class="videocdn_tv">
+                                <iframe src="{{$videocdn_tv['preview_iframe_src']}}"  frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        @endif
                     </div>
                     {{-- end casts --}}
                 </div>

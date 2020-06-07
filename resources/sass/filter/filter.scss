@@ -25,7 +25,7 @@
     input{
         max-width: 190px;  
     }
-    .movie_list{
+    .movie_list, .tv_movie_list{
         max-height: 200px;
         margin-bottom: 40px;
         overflow-y: scroll;
@@ -62,7 +62,7 @@
             background-color: $second_blue;
         }   
     }
-    .countries_list{
+    .countries_list, .tv_countries_list{
         max-height: 200px;
         margin-bottom: 40px;
         overflow-y: scroll;
@@ -98,7 +98,7 @@
             background-color: $second_blue;
         }  
     }
-    .years_list{
+    .years_list, .tv_years_list{
         max-height: 200px;
         // margin-bottom: 40px;
         overflow-y: scroll;

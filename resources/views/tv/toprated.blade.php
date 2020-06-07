@@ -14,7 +14,7 @@
 
         <div class="popular_movies w-80%">
             <div class="flex movies_header justify-between items-center">
-                <h2 class='movies_header_title capitalize tracking-wider text-orange-500 text-2xl  text-center font-semibold'>по рэйтигу:</h2> 
+                <h2 class='movies_header_title tracking-wider text-orange-500 text-2xl  text-center font-semibold'>Топ рэйтинга</h2> 
                    
                 @include('partials.styles')
                 

@@ -96,7 +96,7 @@
         <div class="recomended_title_mobile mt-4 flex items-center justify-center">
             <h2 class='movies_header_title recomendations capitalize tracking-wider text-gray-500 text-2xl   font-semibold'>Рекомендованные</h2>
         </div>   
-        @if($similar != 0)
+        @if(!empty($similar))
             <div class="recomendations_movies_mobile sm:flex mx-auto mt-6 momvie-info pb-10 border-b border-gray-800">
                 <div class="flex w-100 ">
                     <!-- Slider main container -->

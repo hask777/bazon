@@ -70,7 +70,7 @@
         </div>    
     </a>
     <div class="movie_card_head flex justify-between px-2 py-2 text-xs sm:text-xs md:text-sm lg:text-base">
-        <h2 class="title">{{mb_strimwidth($movie['title'], 0, 18, "...")}}</h2>
+        <h2 class="title">{{mb_strimwidth($movie['title'], 0, 20, "...")}}</h2>
         @if(!empty($movie['release_date']))
             <span>{{\Carbon\Carbon::parse($movie['release_date'])->format('Y') }}</span>
         @endif

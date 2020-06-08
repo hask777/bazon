@@ -112,7 +112,7 @@
                                 <span class="ml-2">Плеер 1</span>
                             </button>
 
-                            <button id="tv_play_movie" class="flex inline-flex items-center bg-gray-900 text-gray-100 rounded font-semibold px-5 py-4 hover:bg-orange-600 transition ease-in-out duration-150">
+                            <button id="tv_play_movie_2" class="flex inline-flex items-center bg-gray-900 text-gray-100 rounded font-semibold px-5 py-4 hover:bg-orange-600 transition ease-in-out duration-150">
                                 <i class="fa fa-play-circle-o" aria-hidden="true"></i>
                                 <span class="ml-2">Плеер 2</span>
                             </button>
@@ -150,7 +150,7 @@
                             </button>
 
                             @if(!empty($videos['link']))            
-                                <div class="videocdn_tv bazon_tv">
+                                <div class="videocdn_tv bazon_tv_show">
                                     <iframe src="{{$videos['link']}}"  frameborder="0" allowfullscreen></iframe>
                                 </div>
                             @endif
@@ -162,6 +162,10 @@
                 </div>
             </div>
         </div>
+
+        @include('partials.tv.recomendations')
+        
+
 
     </div>
 </div>

@@ -37,6 +37,24 @@ jQuery(document).ready(function ($) {
 		$('.youtube').show();
 		$('.videocdn').hide();
 	});
+
+	// Show movie and trailer buttons
+	$('.bazon_tv').hide();
+	$('#tv_play_movie_2').on('click', function(e){
+		e.preventDefault();
+		$('#tv_play_movie').css('background-color', '#1a202c')
+		$('#tv_play_movie_2').css('background-color', '#2d3748')
+		$('.videocdn_tv').hide();
+		$('.bazon_tv').show();
+	});
+	
+	$('#tv_play_movie').on('click', function(e){
+		e.preventDefault();
+		$('#tv_play_movie_2').css('background-color', '#1a202c')
+		$('#tv_play_movie').css('background-color', '#2d3748')
+		$('.videocdn_tv').show();
+		$('.bazon_tv').hide();
+	});
 	
 	// Mobile filter show hide
 	$('.filter_show_button').on('click', function(){

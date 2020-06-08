@@ -59,8 +59,6 @@ class TvController extends Controller
         return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);    
     }    
 
-   
-
     /**
      * Show the form for creating a new resource.
      *
@@ -106,12 +104,36 @@ class TvController extends Controller
             ->json();
             // dd($credits);
 
+        $recomend = Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/3/tv/'. $id . '/recommendations?append_to_response=videos,images,credits&language=ru')
+            ->json()['results'];
+            // dump($recomend);
+
+        $similar = Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/3/tv/'. $id . '/similar?append_to_response=videos,images,credits&language=ru')
+            ->json()['results'];
+            // dump($similar);
+
         // dump($movie);  
 
         $videocdn_tvs = Http::get('https://videocdn.tv/api/tv-series?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['original_name'] .'&limit=10')
-            ->json()['data'];
-        // dump($videocdn_tvs);
+            ->json();
+            // dump($videocdn_tvs);
 
+        if(!empty($videocdn_tvs)){
+            $videocdn_tvs = Http::get('https://videocdn.tv/api/tv-series?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['original_name'] .'&limit=10')
+                ->json()['data'];
+
+                // dump($videocdn_tvs);
+        }
+
+        if(empty($videocdn_tvs['data'])){
+            $videocdn_tvs = Http::get('https://videocdn.tv/api/tv-series?api_token=lTf8tBnZLmO0nHTyRaSlvGI5UH1ddZ2f&query='.$movie['name'] .'&limit=10')
+                ->json()['data'];
+
+                // dump($videocdn_tvs);
+        }
+     
         $result = Http::get('https://bazon.cc/api/search?token=a27474c28593adb669d04ead29ee0c41&title='.$movie['original_name'].'')
             ->json();
         // dump($result);
@@ -132,7 +154,7 @@ class TvController extends Controller
                     $tvs = 'NO';
             }
         }
-        dump($movie);
+        // dump($movie);
         // dump($videocdn_tvs);
 
         if(!empty($tvs) && $tvs != "NO"){
@@ -153,6 +175,8 @@ class TvController extends Controller
                 if($movie['original_name'] === $videocdn_tv['orig_title']){
                     // dump($videocdn_tv);
                     return view('tv.show', [
+                        'similar' => $similar,
+                        'recomend' => $recomend,
                         'genres' => $genres,
                         'credits' => $credits,
                         'countries' => $countries,
@@ -169,6 +193,8 @@ class TvController extends Controller
                     
             // dump($videocdn_tv);
             return view('tv.show', [
+                'similar' => $similar,
+                'recomend' => $recomend,
                 'genres' => $genres,
                 'credits' => $credits,
                 'countries' => $countries,
@@ -185,6 +211,8 @@ class TvController extends Controller
                 if($movie['original_name'] === $videocdn_tv['orig_title']){
                     // dump($videocdn_tv);
                     return view('tv.show', [
+                        'similar' => $similar,
+                        'recomend' => $recomend,
                         'genres' => $genres,
                         'credits' => $credits,
                         'countries' => $countries,
@@ -203,6 +231,8 @@ class TvController extends Controller
                 if($movie['original_name'] === $videocdn_tv['orig_title']){
                     // dump($videocdn_tv);
                     return view('tv.show', [
+                        'similar' => $similar,
+                        'recomend' => $recomend,
                         'genres' => $genres,
                         'credits' => $credits,
                         'countries' => $countries,
@@ -219,6 +249,8 @@ class TvController extends Controller
 
         if(!empty($video) && !empty($videocdn_tv)){
             return view('tv.show', [
+                'similar' => $similar,
+                'recomend' => $recomend,
                 'genres' => $genres,
                 'credits' => $credits,
                 'countries' => $countries,
@@ -230,6 +262,8 @@ class TvController extends Controller
             ]);   
         }elseif(!empty($video) && empty($videocdn_tv)){
             return view('tv.show', [
+                'similar' => $similar,
+                'recomend' => $recomend,
                 'genres' => $genres,
                 'credits' => $credits,
                 'countries' => $countries,
@@ -241,6 +275,8 @@ class TvController extends Controller
             ]);
         }elseif(empty($video) && empty($videocdn_tv)){
             return view('tv.show', [
+                'similar' => $similar,
+                'recomend' => $recomend,
                 'genres' => $genres,
                 'credits' => $credits,
                 'countries' => $countries,
@@ -252,6 +288,8 @@ class TvController extends Controller
             ]);
         }else{
             return view('tv.show', [
+                'similar' => $similar,
+                'recomend' => $recomend,
                 'genres' => $genres,
                 'credits' => $credits,
                 'countries' => $countries,

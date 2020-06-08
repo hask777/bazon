@@ -90,6 +90,12 @@ jQuery(document).ready(function ($) {
 			$('.raiting_list').slideToggle();		
 	});
 
+	// Average filter
+	$('.movie_raiting').mousemove(function() {
+		$('.movie_raiting_value').text($(this).val());
+	});
+	
+
 	// Mobile
 	$('.movie_list_mobile').hide();
 	$('.genres_head_mobile').on('click', function(){
@@ -100,6 +106,17 @@ jQuery(document).ready(function ($) {
 	$('.country_head_mobile').on('click', function(){
 		$('.countries_list_mobile').slideToggle();		
 	});
+
+	$('.years_list_mobile').hide();
+	$('.years_head_mobile').on('click', function(){
+		$('.years_list_mobile').slideToggle();		
+	});
+
+	$('.raiting_list_mobile').hide();
+		$('.raiting_head_mobile').on('click', function(){
+			$('.raiting_list_mobile').slideToggle();		
+	});
+
 
 	// TV
 	$('.tv_movie_list').hide();
@@ -112,30 +129,11 @@ jQuery(document).ready(function ($) {
 		$('.tv_countries_list').slideToggle();		
 	});
 
-	$('.movie_list').hide();
-	$('.genres_head').on('click', function(){			
-		$('.movie_list').slideToggle();				
-	});
-
 	$('.tv_years_list').hide();
 	$('.tv_years_head').on('click', function(){
 		$('.tv_years_list').slideToggle();		
 	});
 
-	$('.years_list').hide();
-	$('.years_head').on('click', function(){
-		$('.years_list').slideToggle();		
-	});
-
-	$('.raiting_list').hide();
-		$('.raiting_head').on('click', function(){
-			$('.raiting_list').slideToggle();		
-	});
-
-	// Average filter
-	$('.movie_raiting').mousemove(function() {
-		$('.movie_raiting_value').text($(this).val());
-	});
 
 	// Show recomendations similar 
 

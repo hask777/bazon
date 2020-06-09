@@ -34,7 +34,7 @@
                         <x-year-filter :year="$year"/>
                     @endif --}}
 
-                    <x-year-filter :year="$year"/>
+                    <x-tv-years :year="$year"/>
                 
                 @endforeach
             </ul>

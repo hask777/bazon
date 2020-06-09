@@ -23,4 +23,4 @@ Route::get('/tvs/today', 'TvTodayController@index')->name('tv.today');
 Route::get('/tvs/thisweek', 'TvThisweekController@index')->name('tv.thisweek');
 Route::get('/tvs/toprated', 'TvTopRatedController@index')->name('tv.toprated');
 Route::get('/tvs/countries', 'TvCountriesController@index')->name('tv.countries');
-
+Route::get('/tvs/year', 'TvYearsController@index')->name('tv.year');

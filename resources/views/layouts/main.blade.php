@@ -79,7 +79,7 @@
                 // dump($current_uri);    
             @endphp
 
-            @if($current_uri != NULL && $current_uri[0] == 'tvs')
+            @if($current_uri != NULL && $current_uri[0] == 'tvs' || $current_uri[0] == 'tv')
                 @include('partials.tv.mobile.left-sidebar')
             @else
                 @include('partials.left-sidebar-mobile')

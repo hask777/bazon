@@ -133,8 +133,8 @@
 
        
        
-        <script type="text/javascript" src="{{asset('js/main.js')}}"></script>
-        <script type="text/javascript" src="{{asset('js/swiper.js')}}"></script>
+        <script type="text/javascript" src="{{secure_asset('js/main.js')}}"></script>
+        <script type="text/javascript" src="{{secure_asset('js/swiper.js')}}"></script>
 
       
     </body>

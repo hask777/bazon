@@ -164,6 +164,7 @@
         </div>
 
         @include('partials.tv.recomendations')
+        @include('partials.tv.recomendations_mobile')
         
 
 

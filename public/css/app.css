@@ -4,6 +4,29 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+.logo {
+  display: block;
+}
+
+.logo a {
+  font-size: 1.5rem;
+  display: block;
+}
+
+.footer_logo .logo {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.footer_logo .logo a {
+  font-size: 1.5rem;
+  display: block;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
 .main_menu ul .main_menu_item:hover a,
 .main_menu ul .main_menu_item:hover i {
   color: #4299e1;
@@ -113,10 +136,8 @@ body {
   }
 
   header .header_wrapper .logo a {
+    font-size: 1.5rem;
     display: block;
-  }
-
-  header .header_wrapper .logo a svg {
     display: block;
     margin-left: auto;
     margin-right: auto;

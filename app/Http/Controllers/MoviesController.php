@@ -133,10 +133,7 @@ class MoviesController extends Controller
             $videos = Http::get('https://bazon.cc/api/search?token=a27474c28593adb669d04ead29ee0c41&title='.$movie['original_title'].'')
             ->json()['results'];
             // dump($videos);
-
-            
             // $text = htmlspecialchars_decode($text);
-
         }else{
             $result = Http::get('https://bazon.cc/api/search?token=a27474c28593adb669d04ead29ee0c41&title='.$movie['title'].'')
             ->json();
@@ -152,8 +149,10 @@ class MoviesController extends Controller
         // dump($videos);
 
         $movie_year = \Carbon\Carbon::parse($movie['release_date'])->format('Y');
+      
 
-        // dump($movie_year);
+        // dump($movie);
+        // dump($videos[0]['info']['year']);
 
         if($videos == 'NO'){
             if(!empty($collection)){
@@ -187,13 +186,15 @@ class MoviesController extends Controller
             foreach($videos as $video){
                 // dump( str_replace("&nbsp;",' ',$video['info']['rus']));
                 // dump($movie['title']);
+                // dump($video['info']['time']/60);      
                 if(!empty($video)){
                     if(     
-                        str_replace("&nbsp;",' ',$video['info']['orig']) === $movie['original_title'] &&
-                        $video['info']['year'] === $movie_year ||
-                        str_replace("&nbsp;",' ',$video['info']['rus']) === $movie['title'] &&
-                        $video['info']['year'] === $movie_year          
-                    ){          
+                        str_replace("&nbsp;",' ', $video['info']['orig']) === $movie['original_title'] &&
+                        $video['info']['time']/60 === $movie['runtime'] ||
+                        str_replace("&nbsp;",' ', $video['info']['rus']) === $movie['title'] &&
+                        $video['info']['time']/60 === $movie['runtime']          
+                    ){  
+                        
                         if(!empty($collection)){
                             return view('movies.show', [
                                 'collection' => $collection,

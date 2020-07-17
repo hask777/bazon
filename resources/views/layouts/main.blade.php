@@ -1,8 +1,39 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name=”robots” content=”index, follow”>
+
+    @php
+        $current_uri = request()->segments();
+        // dump($current_uri);    
+    @endphp
+
+    @if($current_uri != NULL && $current_uri[0] === 'movie')
+        
+        <meta property="og:title" content="{{ $movie['original_title'] }} | {{ $movie['title'] }}" />
+        <meta property="og:site_name" content="KinoZet" />
+        <meta property="og:url" content="{{ route('movies.show', $movie['id']) }}" />
+        <meta property="og:description" content="{{ $movie['overview'] }}" />
+        <meta property="og:image" content="{{ $movie['poster_path'] }}" />
+
+    @endif
+
+    @if($current_uri != NULL && $current_uri[0] === 'tv')
+        
+        <meta property="og:title" content="{{ $movie['original_name'] }} | {{ $movie['name'] }}" />
+        <meta property="og:site_name" content="KinoZet" />
+        <meta property="og:url" content="{{ route('tv.show', $movie['id']) }}" />
+        <meta property="og:description" content="{{ $movie['overview'] }}" />
+        <meta property="og:image" content="{{ $movie['poster_path'] }}" />
+        
+    @endif
+
+    <link rel="canonical" href="http://example.com/" />
+    
+    <title>KinoZet</title>
 
     <link rel="stylesheet" href="{{secure_asset('css/main.css')}}">
     <link rel="stylesheet" href="{{secure_asset('css/app.css')}}">
@@ -55,10 +86,13 @@
                 <img src="{{secure_asset('img/icons/odnaklassniki.svg')}}" alt="" class="ml-1">
                 <img src="{{secure_asset('img/icons/facebook.svg')}}" alt="" class="ml-1">
                 <img src="{{secure_asset('img/icons/vkontakte.svg')}}" alt="" class="ml-1"> --}}
-                <img src="{{asset('img/icons/telegram.svg')}}" alt="" class="ml-1">
+                {{-- <img src="{{asset('img/icons/telegram.svg')}}" alt="" class="ml-1">
                 <img src="{{asset('img/icons/odnaklassniki.svg')}}" alt="" class="ml-1">
                 <img src="{{asset('img/icons/facebook.svg')}}" alt="" class="ml-1">
-                <img src="{{asset('img/icons/vkontakte.svg')}}" alt="" class="ml-1">
+                <img src="{{asset('img/icons/vkontakte.svg')}}" alt="" class="ml-1"> --}}
+                <div class="footer_logo w-100% flex justify-center">
+                    @include('layouts.header-parts.logo')
+                </div>
             </div>     
         </footer>
 
@@ -79,7 +113,7 @@
                 // dump($current_uri);    
             @endphp
 
-            @if($current_uri != NULL && $current_uri[0] == 'tvs' || $current_uri[0] == 'tv')
+            @if($current_uri != NULL && $current_uri[0] == 'tvs' || $current_uri != NULL && $current_uri[0] == 'tv')
                 @include('partials.tv.mobile.left-sidebar')
             @else
                 @include('partials.left-sidebar-mobile')
@@ -98,10 +132,9 @@
         <livewire:scripts>
 
        
-        <script type="text/javascript" src="{{secure_asset('js/main.js')}}"></script>
-        <script type="text/javascript" src="{{secure_asset('js/swiper.js')}}"></script>
-        {{-- <script type="text/javascript" src="{{asset('js/main.js')}}"></script>
-        <script type="text/javascript" src="{{asset('js/swiper.js')}}"></script> --}}
+       
+        <script type="text/javascript" src="{{asset('js/main.js')}}"></script>
+        <script type="text/javascript" src="{{asset('js/swiper.js')}}"></script>
 
       
     </body>

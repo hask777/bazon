@@ -1,26 +1,8 @@
-html,body{
-    overflow-x: hidden;
-    font-family: 'Montserrat', sans-serif;
-}
-// MOVIES
-@import 'vars';
-@import 'menu';
-@import 'mobileMenu';
-@import 'pagination';
-@import 'movie-card';
-@import 'popular-card';
-@import 'iframe';
-@import 'show';
-@import 'search';
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 
-@import 'filter/filter';
-@import 'filter/filter-mobile';
+// Variables
+@import 'variables';
 
-@import 'index/nowPlaying/sm';
-@import 'index/popular/sm';
-@import 'index/topRated/sm';
-@import 'index/upcoming/sm';
-
-// TV
-
-@import 'tv/show';
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';

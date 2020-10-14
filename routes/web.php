@@ -24,3 +24,9 @@ Route::get('/tvs/thisweek', 'TvThisweekController@index')->name('tv.thisweek');
 Route::get('/tvs/toprated', 'TvTopRatedController@index')->name('tv.toprated');
 Route::get('/tvs/countries', 'TvCountriesController@index')->name('tv.countries');
 Route::get('/tvs/year', 'TvYearsController@index')->name('tv.year');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/app', 'AppController@index')->name('app');

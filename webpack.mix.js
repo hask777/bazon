@@ -19,4 +19,5 @@ mix.js('resources/js/app.js', 'public/js')
 
 mix.sass('resources/sass/app.scss', 'public/css');
 
-mix.browserSync('warm-plateau-75468.herokuapp.com');
+// mix.browserSync('warm-plateau-75468.herokuapp.com');
+mix.browserSync('bazon.test');

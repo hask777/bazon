@@ -58,7 +58,7 @@
     <body class="bg-gray-900 text-white">
        
         <div id="app">
-            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm  bg-gray-800">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}

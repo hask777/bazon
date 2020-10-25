@@ -1,18 +1,22 @@
 <template>
-<div id="app">
-    <div>
-        hello world
+    <div id="app">
+        <div class="mb-2">
+            <!-- <Like/> -->
+            <like></like>
+        </div>   
     </div>
-    <HelloWorld/>
-</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import Like from './components/Like'
 export default {  
     name: 'App',
     components: {
-        HelloWorld
+        Like
     }
 }
 </script>
+
+<style lang="scss">
+    
+</style>

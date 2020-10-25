@@ -155,7 +155,7 @@
                     </div>
                     {{-- end movie --}}
 
-                    <div id="app">fg</div>
+                    <div id="app"></div>
 
                 </div>
             </div>
@@ -307,7 +307,7 @@
                     </div>
                     {{-- end movies --}}
 
-                    <div id="app">fg</div>
+                    <div id="app"></div>
                     
                 </div>
             </div>

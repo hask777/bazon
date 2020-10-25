@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
+use App\Link;
 
 class MoviesController extends Controller
 {
@@ -74,7 +75,14 @@ class MoviesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'movie_id' => 'required|integer',
+            'like_count' => 'required|integer'
+        ]);
+    
+        $link = Link::create($data);
+    
+        return response($link, 201);
     }
 
     /**
@@ -91,6 +99,9 @@ class MoviesController extends Controller
         include 'inc/sidebar.php';
         include 'inc/popular.php';
         include 'inc/movies/popular_pagination.php';
+
+        $like = Link::all();
+        // dump(response($like, 201));
 
         $movie = Http::withToken(config('services.tmdb.token'))
             ->get('https://api.themoviedb.org/3/movie/'. $id . '?append_to_response=videos,images,credits&language=ru')
@@ -167,6 +178,7 @@ class MoviesController extends Controller
                     'years' => $years,
                     'sidebarFutureMovies' => $sidebarFutureMovies,
                     'videos' => 'NO',
+                    'like' => $like
                 ]);
             }else{
                 return view('movies.show', [
@@ -180,6 +192,7 @@ class MoviesController extends Controller
                     'years' => $years,
                     'sidebarFutureMovies' => $sidebarFutureMovies,
                     'videos' => 'NO',
+                    'like' => $like
                 ]);
             }
         }else{
@@ -207,6 +220,7 @@ class MoviesController extends Controller
                                 'years' => $years,
                                 'sidebarFutureMovies' => $sidebarFutureMovies,
                                 'videos' => $video,
+                                'like' => $like
                             ]);
                         }else{
                             return view('movies.show', [
@@ -220,6 +234,7 @@ class MoviesController extends Controller
                                 'years' => $years,
                                 'sidebarFutureMovies' => $sidebarFutureMovies,
                                 'videos' => $video,
+                                'like' => $like
                             ]);
                         }
                     }
@@ -235,7 +250,8 @@ class MoviesController extends Controller
                         'countries' => $countries,
                         'years' => $years,
                         'sidebarFutureMovies' => $sidebarFutureMovies,               
-                        'videos' => $video 
+                        'videos' => $video,
+                        'like' => $like
                     ]);
                 } 
             }
@@ -253,7 +269,8 @@ class MoviesController extends Controller
                 'countries' => $countries,
                 'years' => $years,
                 'sidebarFutureMovies' => $sidebarFutureMovies,                
-                'videos' => $video
+                'videos' => $video,
+                'like' => $like
             ]); 
         }else{
             return view('movies.show', [
@@ -267,7 +284,8 @@ class MoviesController extends Controller
                 'countries' => $countries,
                 'years' => $years,
                 'sidebarFutureMovies' => $sidebarFutureMovies,               
-                'videos' => $video
+                'videos' => $video,
+                'like' => $like
             ]);  
         }
         foreach($videos as $video){
@@ -288,7 +306,8 @@ class MoviesController extends Controller
                         'countries' => $countries,
                         'years' => $years,
                         'sidebarFutureMovies' => $sidebarFutureMovies,               
-                        'videos' => $video
+                        'videos' => $video,
+                        'like' => $like
                     ]);     
                 }                          
             }
@@ -303,7 +322,8 @@ class MoviesController extends Controller
                     'countries' => $countries,
                     'years' => $years,
                     'sidebarFutureMovies' => $sidebarFutureMovies,               
-                    'videos' => $video 
+                    'videos' => $video,
+                    'like' => $like
                 ]);
             }  
         }                         

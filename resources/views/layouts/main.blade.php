@@ -57,7 +57,7 @@
     </head>
     <body class="bg-gray-900 text-white">
        
-        <div id="app">
+        {{-- <div id="app">
             <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm  bg-gray-800">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
@@ -109,8 +109,9 @@
                 </div>
             </nav>
     
-        </div>
-
+        </div> --}}
+       
+        <example-component></example-component>
         <header class="border-b border-gray-800">
             <div class="header_wrapper container mx-auto  px-4 py-4 flex">
                 {{-- <div class="mobile_menu_button">

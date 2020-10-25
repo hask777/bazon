@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
+{{$like}}
 <div class="container flex mx-auto px-4 mt-6 mb-8">
     @include('partials.left-sidebar')
     <div class="popular_movies show w-100 md:w-80%">
@@ -152,7 +153,10 @@
                             {{-- <iframe src="{{$bazon[0]['link']}}"  frameborder="0" allowfullscreen></iframe> --}}
                         @endif
                     </div>
-                    {{-- end casts --}}
+                    {{-- end movie --}}
+
+                    <div id="app">fg</div>
+
                 </div>
             </div>
         </div>
@@ -301,15 +305,19 @@
                             {{-- <iframe src="{{$bazon[0]['link']}}"  frameborder="0" allowfullscreen></iframe> --}}
                         @endif
                     </div>
-                    {{-- end casts --}}
+                    {{-- end movies --}}
+
+                    <div id="app">fg</div>
+                    
                 </div>
             </div>
         </div>
         @endif
+        
         {{-- end  --}}
        @include('partials.show.recomendations')
        @include('partials.show.recomendations_mobile')
-
+       
     </div>
 </div>
 
